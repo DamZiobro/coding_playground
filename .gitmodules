@@ -1,3 +1,6 @@
 [submodule "cppPractiseSamples/CppAdventureExamples"]
 	path = cppPractiseSamples/CppAdventureExamples
 	url = https://github.com/xmementoit/CppAdventureExamples
+[submodule "csharpPractiseSamples/CSharpAdventureExamples"]
+	path = csharpPractiseSamples/CSharpAdventureExamples
+	url = https://github.com/xmementoit/CSharpAdventureExamples

@@ -7,3 +7,6 @@
 [submodule "cppPractiseSamples/MJPEGDecoder"]
 	path = cppPractiseSamples/MJPEGDecoder
 	url = https://github.com/xmementoit/MJPEGDecoder
+[submodule "cppPractiseSamples/tddCppSkeleton"]
+	path = cppPractiseSamples/tddCppSkeleton
+	url = https://github.com/xmementoit/tddCppSkeleton

@@ -2,13 +2,8 @@
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 #
-# Copyright © 2016 damian <damian@damian-work>
-#
-# Distributed under terms of the MIT license.
+# Copyright © 2016 Damian Ziobro <damian@xmementoit.com>
 
-"""
-
-"""
 import itertools
 
 print ("--------------------------------------------------------------------------------")
@@ -24,4 +19,8 @@ print ("chain:")
 for element in itertools.chain(array1, array2):
     print (element)
 
+print ("--------------------------------------------------------------------------------")
+print ("islice:")
+for element in itertools.islice(array, 2, 4):
+    print (element)
     

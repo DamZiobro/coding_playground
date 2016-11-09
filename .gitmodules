@@ -4,3 +4,6 @@
 [submodule "csharpPractiseSamples/CSharpAdventureExamples"]
 	path = csharpPractiseSamples/CSharpAdventureExamples
 	url = https://github.com/xmementoit/CSharpAdventureExamples
+[submodule "cppPractiseSamples/MJPEGDecoder"]
+	path = cppPractiseSamples/MJPEGDecoder
+	url = https://github.com/xmementoit/MJPEGDecoder

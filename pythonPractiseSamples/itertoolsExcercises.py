@@ -39,6 +39,11 @@ class TestItertoolsMethods(unittest.TestCase):
         self.assertEqual(result, (1,2,3,4)) #as we number from 0
         self.assertEqual(len(result), 4)
 
+    def test_takewhile(self):
+        result = tuple(itertools.takewhile(lambda x: x<5, self.array))
+        self.assertEqual(result, (1,2,3,4)) #as we number from 0
+        self.assertEqual(len(result), 4)
+
 if __name__ == "__main__": 
     print ("running unittests for itertools")
     unittest.main();

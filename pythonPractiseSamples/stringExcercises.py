@@ -28,6 +28,12 @@ class TestFunctoolsMethods(unittest.TestCase):
         d = datetime.datetime(2016,11,15, 8,27,30)
         self.assertEqual('{:%Y-%m-%d %H:%M:%S}'.format(d), "2016-11-15 08:27:30")
 
+    def test_range(self):
+        testArray = []
+        for i in range (5,10):
+            testArray.append(i)
+        self.assertEqual(testArray, [5,6,7,8,9])
+
 if __name__ == "__main__": 
     print ("running unittests for string")
     unittest.main();

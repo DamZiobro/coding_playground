@@ -19,6 +19,10 @@ class TestDifflibsMethods(unittest.TestCase):
         import keyword
         self.assertEqual(difflib.get_close_matches('wheil', keyword.kwlist), ['while'])
 
+    def test_SequenceMatcher_Ratio(self):
+        s = difflib.SequenceMatcher(None, "abcd", "bcde")
+        self.assertEqual(s.ratio(), 0.75)
+
 if __name__ == "__main__": 
     print ("running unittests for regular expressions")
     unittest.main();

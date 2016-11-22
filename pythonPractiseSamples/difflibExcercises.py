@@ -6,6 +6,7 @@
 
 import unittest
 import difflib
+import textwrap
 
 class TestDifflibsMethods(unittest.TestCase):
 
@@ -22,6 +23,13 @@ class TestDifflibsMethods(unittest.TestCase):
     def test_SequenceMatcher_Ratio(self):
         s = difflib.SequenceMatcher(None, "abcd", "bcde")
         self.assertEqual(s.ratio(), 0.75)
+
+    def test_testwrap(self):
+        s = textwrap.shorten("Damian Ziobro", 13)
+        self.assertEqual(s, "Damian Ziobro")
+        s = textwrap.shorten("Damian Ziobro", 12)
+        self.assertEqual(s, "Damian [...]")
+
 
 if __name__ == "__main__": 
     print ("running unittests for regular expressions")

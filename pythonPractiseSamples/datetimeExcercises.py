@@ -22,6 +22,9 @@ class TestDatetimeMethods(unittest.TestCase):
     def test_timedelta(self):
         self.assertEqual(str(datetime.timedelta(minutes=30, hours=8, seconds=20)), "8:30:20")
 
+    def test_datetoday(self):
+        self.assertEqual(str(datetime.date.today()), str(datetime.datetime.now().date()))
+
 
 if __name__ == "__main__": 
     print ("running unittests for datetime")

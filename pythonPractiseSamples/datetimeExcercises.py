@@ -25,6 +25,8 @@ class TestDatetimeMethods(unittest.TestCase):
     def test_datetoday(self):
         self.assertEqual(str(datetime.date.today()), str(datetime.datetime.now().date()))
 
+    def test_datereplace(self):
+        self.assertEqual(str(self.sampleDate.replace(day=29)), "2016-11-29")
 
 if __name__ == "__main__": 
     print ("running unittests for datetime")

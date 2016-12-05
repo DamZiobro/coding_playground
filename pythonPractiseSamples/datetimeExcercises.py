@@ -28,6 +28,9 @@ class TestDatetimeMethods(unittest.TestCase):
     def test_date_isoweekday(self):
         self.assertEqual(str(self.sampleDate.isoweekday()), "3")
 
+    def test_date_ctime(self):
+        self.assertEqual(str(self.sampleDate.ctime()), "Wed Nov 23 00:00:00 2016")
+
 if __name__ == "__main__": 
     print ("running unittests for datetime")
     unittest.main();

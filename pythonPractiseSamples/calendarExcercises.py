@@ -16,6 +16,10 @@ class TestCalendarMethods(unittest.TestCase):
         calendar.setfirstweekday(calendar.MONDAY)
         self.assertEqual(calendar.firstweekday(), calendar.MONDAY);
 
+    def test_calendar_isleap(self):
+        self.assertEqual(calendar.isleap(2016), True);
+        self.assertEqual(calendar.isleap(2015), False);
+
 if __name__ == "__main__": 
     print ("running unittests for calendar")
     unittest.main();

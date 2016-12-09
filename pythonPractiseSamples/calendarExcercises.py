@@ -20,6 +20,9 @@ class TestCalendarMethods(unittest.TestCase):
         self.assertEqual(calendar.isleap(2016), True);
         self.assertEqual(calendar.isleap(2015), False);
 
+    def test_calendar_weekheader(self):
+        self.assertEqual(calendar.weekheader(5), " Mon   Tue   Wed   Thu   Fri   Sat   Sun ");
+
 if __name__ == "__main__": 
     print ("running unittests for calendar")
     unittest.main();

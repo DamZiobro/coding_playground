@@ -26,6 +26,9 @@ class TestCalendarMethods(unittest.TestCase):
     def test_calendar_monthrange(self):
         self.assertEqual(calendar.monthrange(2016, 12), (3,31));
 
+    def test_calendar_monthrange(self):
+        self.assertEqual(calendar.monthrange(2016, 12), (3,31));
+
 if __name__ == "__main__": 
     print ("running unittests for calendar")
     unittest.main();

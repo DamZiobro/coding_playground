@@ -17,6 +17,11 @@ class TestCollectionsMethods(unittest.TestCase):
         self.assertEqual(self.deq[0], 'g');
         self.assertEqual(self.deq[-1], 'j');
 
+    def test_dequeue_popleft(self):
+        self.deq.popleft()
+        self.assertEqual(self.deq[0], 'h');
+        self.assertEqual(self.deq[-1], 'i');
+
 if __name__ == "__main__": 
     print ("running unittests for collections")
     unittest.main();

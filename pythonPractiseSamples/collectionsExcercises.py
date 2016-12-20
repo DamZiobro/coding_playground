@@ -6,11 +6,16 @@
 
 import unittest
 from collections import deque
+from collections import defaultdict
 
 class TestCollectionsMethods(unittest.TestCase):
 
     def setUp(self):
         self.deq = deque("ghi")
+        self.myList = [('x', 5), ('y', 10), ('a', 3), ('f', 6), ('e', 2)]
+        self.dict = defaultdict(list)
+        for k,v in self.myList:
+            self.dict[k].append(v)
 
     def test_dequeue_append(self):
         self.deq.append('j')
@@ -21,6 +26,9 @@ class TestCollectionsMethods(unittest.TestCase):
         self.deq.popleft()
         self.assertEqual(self.deq[0], 'h');
         self.assertEqual(self.deq[-1], 'i');
+
+    def test_defaultdict_sorted_and_slicing(self):
+        self.assertEqual(sorted(self.dict.items()), [('a', [3]), ('e', [2]), ('f', [6]), ('x', [5]), ('y', [10])]);
 
 if __name__ == "__main__": 
     print ("running unittests for collections")

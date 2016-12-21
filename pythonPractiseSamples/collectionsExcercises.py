@@ -7,6 +7,7 @@
 import unittest
 from collections import deque
 from collections import defaultdict
+from collections import namedtuple
 
 class TestCollectionsMethods(unittest.TestCase):
 
@@ -29,6 +30,11 @@ class TestCollectionsMethods(unittest.TestCase):
 
     def test_defaultdict_sorted_and_slicing(self):
         self.assertEqual(sorted(self.dict.items()), [('a', [3]), ('e', [2]), ('f', [6]), ('x', [5]), ('y', [10])]);
+
+    def test_namedtuple(self):
+        Point3D = namedtuple('Point3D', ['x', 'y', 'z'])
+        p = Point3D(10,z=20,y=12)
+        self.assertEqual(p.x+p.y+p.z, 42);
 
 if __name__ == "__main__": 
     print ("running unittests for collections")

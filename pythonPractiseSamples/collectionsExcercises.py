@@ -8,6 +8,7 @@ import unittest
 from collections import deque
 from collections import defaultdict
 from collections import namedtuple
+from collections import Counter
 
 class TestCollectionsMethods(unittest.TestCase):
 
@@ -35,6 +36,11 @@ class TestCollectionsMethods(unittest.TestCase):
         Point3D = namedtuple('Point3D', ['x', 'y', 'z'])
         p = Point3D(10,z=20,y=12)
         self.assertEqual(p.x+p.y+p.z, 42);
+
+    def test_counter(self):
+        counter = Counter("Damian Ziobro")
+        self.assertEqual(counter['o'], 2);
+
 
 if __name__ == "__main__": 
     print ("running unittests for collections")

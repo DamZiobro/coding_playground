@@ -9,6 +9,7 @@ from collections import deque
 from collections import defaultdict
 from collections import namedtuple
 from collections import Counter
+from collections import OrderedDict
 
 class TestCollectionsMethods(unittest.TestCase):
 
@@ -40,6 +41,11 @@ class TestCollectionsMethods(unittest.TestCase):
     def test_counter(self):
         counter = Counter("Damian Ziobro")
         self.assertEqual(counter['o'], 2);
+
+    def test_OrderedDict(self):
+        dict = OrderedDict.fromkeys("Damian") #overridden 2nd 'a' as this is dict
+        dict.move_to_end("m")
+        self.assertEqual(''.join(dict.keys()), "Dainm");
 
 
 if __name__ == "__main__": 

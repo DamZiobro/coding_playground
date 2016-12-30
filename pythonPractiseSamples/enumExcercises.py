@@ -24,6 +24,9 @@ class TestPprintMethods(unittest.TestCase):
     def test_enum_value(self):
         self.assertEqual(self.color.value, 1);
 
+    def test_enum_compare(self):
+        self.assertFalse(Color.BLUE == Color.RED);
+
 if __name__ == "__main__": 
     print ("running unittests for enum")
     unittest.main();

@@ -15,9 +15,14 @@ class TestMathMethods(unittest.TestCase):
 
     def test_ceil(self):
         self.assertEqual(math.ceil(self.number), 4);
+        self.assertEqual(math.ceil(self.negativeNumber), -3);
 
     def test_fabs(self):
         self.assertEqual(math.fabs(self.negativeNumber), 3.5);
+
+    def test_floor(self):
+        self.assertEqual(math.floor(self.number), 3);
+        self.assertEqual(math.floor(self.negativeNumber), -4);
 
 if __name__ == "__main__": 
     print ("running unittests for math")

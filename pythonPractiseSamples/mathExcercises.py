@@ -24,6 +24,10 @@ class TestMathMethods(unittest.TestCase):
         self.assertEqual(math.floor(self.number), 3);
         self.assertEqual(math.floor(self.negativeNumber), -4);
 
+    def test_fmod(self):
+        self.assertEqual(math.fmod(self.number,2), 1.5);
+        self.assertEqual(math.fmod(self.negativeNumber, 2), -1.5);
+
 if __name__ == "__main__": 
     print ("running unittests for math")
     unittest.main();

@@ -28,6 +28,9 @@ class TestMathMethods(unittest.TestCase):
         self.assertEqual(math.fmod(self.number,2), 1.5);
         self.assertEqual(math.fmod(self.negativeNumber, 2), -1.5);
 
+    def test_fsum(self):
+        self.assertEqual(math.fsum([2,4,3,6]), 15);
+
 if __name__ == "__main__": 
     print ("running unittests for math")
     unittest.main();

@@ -31,6 +31,9 @@ class TestMathMethods(unittest.TestCase):
     def test_fsum(self):
         self.assertEqual(math.fsum([2,4,3,6]), 15);
 
+    def test_pow(self):
+        self.assertEqual(math.pow(2,3), 8);
+
 if __name__ == "__main__": 
     print ("running unittests for math")
     unittest.main();

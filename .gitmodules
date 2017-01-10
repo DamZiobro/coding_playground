@@ -10,3 +10,6 @@
 [submodule "cppPractiseSamples/tddCppSkeleton"]
 	path = cppPractiseSamples/tddCppSkeleton
 	url = https://github.com/xmementoit/tddCppSkeleton
+[submodule "dockerPracticeSamples/dockerTestWebApp"]
+	path = dockerPracticeSamples/dockerTestWebApp
+	url = https://github.com/xmementoit/dockerTestWebApp

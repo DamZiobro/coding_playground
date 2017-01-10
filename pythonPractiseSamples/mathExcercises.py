@@ -34,6 +34,9 @@ class TestMathMethods(unittest.TestCase):
     def test_pow(self):
         self.assertEqual(math.pow(2,3), 8);
 
+    def test_sqrt(self):
+        self.assertEqual(math.sqrt(16), 4);
+
 if __name__ == "__main__": 
     print ("running unittests for math")
     unittest.main();

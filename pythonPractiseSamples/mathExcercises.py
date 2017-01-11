@@ -37,6 +37,12 @@ class TestMathMethods(unittest.TestCase):
     def test_sqrt(self):
         self.assertEqual(math.sqrt(16), 4);
 
+    def test_sqrt(self):
+        self.assertEqual(math.sqrt(16), 4);
+
+    def test_gamma(self):
+        self.assertEqual(math.gamma(0.1), 9.513507698668732);
+
 if __name__ == "__main__": 
     print ("running unittests for math")
     unittest.main();

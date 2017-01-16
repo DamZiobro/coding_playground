@@ -16,6 +16,9 @@ class TestPathMethods(unittest.TestCase):
     def test_abspath(self):
         self.assertEqual(os.path.abspath(self.relativePath), "/home/damian/other/practiseSamples/test/project");
 
+    def test_basename(self):
+        self.assertEqual(os.path.basename(self.sampleAbsolutePath), "project");
+
 if __name__ == "__main__": 
     print ("running unittests for path")
     unittest.main();

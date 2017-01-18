@@ -19,6 +19,9 @@ class TestPathMethods(unittest.TestCase):
     def test_basename(self):
         self.assertEqual(os.path.basename(self.sampleAbsolutePath), "project");
 
+    def test_dirname(self):
+        self.assertEqual(os.path.dirname(self.sampleAbsolutePath), "/home/user/test");
+
 if __name__ == "__main__": 
     print ("running unittests for path")
     unittest.main();

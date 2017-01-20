@@ -22,6 +22,9 @@ class TestPathMethods(unittest.TestCase):
     def test_exists(self):
         self.assertEqual(os.path.exists(self.sampleAbsolutePath), False);
 
+    def test_expanduser(self):
+        self.assertEqual(os.path.expanduser("~/dir"), "/home/damian/dir");
+
 if __name__ == "__main__": 
     print ("running unittests for path")
     unittest.main();

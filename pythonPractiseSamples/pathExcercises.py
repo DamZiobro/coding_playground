@@ -30,6 +30,14 @@ class TestPathMethods(unittest.TestCase):
         self.assertEqual(os.path.isabs("~/dir"), False);
         self.assertEqual(os.path.isabs("/home/damian/dir"), True);
 
+    def test_isfile(self):
+        self.assertEqual(os.path.isfile("/etc"), False);
+        self.assertEqual(os.path.isfile("/etc/hosts"), True);
+
+    def test_isdir(self):
+        self.assertEqual(os.path.isdir("/etc"), True);
+        self.assertEqual(os.path.isdir("/etc/hosts"), False);
+
 if __name__ == "__main__": 
     print ("running unittests for path")
     unittest.main();

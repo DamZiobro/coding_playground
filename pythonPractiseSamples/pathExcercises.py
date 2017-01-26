@@ -38,6 +38,9 @@ class TestPathMethods(unittest.TestCase):
         self.assertEqual(os.path.isdir("/etc"), True);
         self.assertEqual(os.path.isdir("/etc/hosts"), False);
 
+    def test_join(self):
+        self.assertEqual(os.path.join("/etc", "crontab"), "/etc/crontab");
+
 if __name__ == "__main__": 
     print ("running unittests for path")
     unittest.main();

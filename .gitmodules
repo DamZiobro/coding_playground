@@ -12,4 +12,4 @@
 	url = https://github.com/xmementoit/tddCppSkeleton
 [submodule "dockerPracticeSamples/dockerTestWebApp"]
 	path = dockerPracticeSamples/dockerTestWebApp
-	url = https://github.com/xmementoit/dockerTestWebApp
+	url = git@github.com:xmementoit/dockerTestWebApp

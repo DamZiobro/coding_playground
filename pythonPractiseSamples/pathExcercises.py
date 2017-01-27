@@ -41,6 +41,9 @@ class TestPathMethods(unittest.TestCase):
     def test_join(self):
         self.assertEqual(os.path.join("/etc", "crontab"), "/etc/crontab");
 
+    def test_samefile(self):
+        self.assertEqual(os.path.samefile("/home/damian/other", os.path.expanduser("~/other")), True);
+
 if __name__ == "__main__": 
     print ("running unittests for path")
     unittest.main();

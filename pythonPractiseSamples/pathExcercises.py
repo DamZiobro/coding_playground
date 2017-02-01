@@ -47,6 +47,9 @@ class TestPathMethods(unittest.TestCase):
     def test_split(self):
         self.assertEqual(os.path.split("/home/damian/other"), ('/home/damian','other'));
 
+    def test_splitext(self):
+        self.assertEqual(os.path.splitext("/home/damian/other/test.txt"), ('/home/damian/other/test', '.txt'));
+
 if __name__ == "__main__": 
     print ("running unittests for path")
     unittest.main();

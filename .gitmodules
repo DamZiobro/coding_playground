@@ -13,3 +13,6 @@
 [submodule "dockerPracticeSamples/dockerTestWebApp"]
 	path = dockerPracticeSamples/dockerTestWebApp
 	url = git@github.com:xmementoit/dockerTestWebApp
+[submodule "dockerPracticeSamples/docker-puppet"]
+	path = dockerPracticeSamples/docker-puppet
+	url = https://github.com/xmementoit/docker-puppet

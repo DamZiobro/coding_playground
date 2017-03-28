@@ -5,19 +5,20 @@
  * Distributed under terms of the MIT license.
  */
 
+function onLoadMetadataCallback(e) {
+  console.log("Getting metadata...");
+}
 
-var getMediaErrorCallback = function(e) {
+function getMediaErrorCallback(e) {
   console.log("Rejected...", e);
 };
 
-var getMediaSuccessCallback = function(localMediaStream) {
+function getMediaSuccessCallback(localMediaStream) {
   console.log("Getting audio/video media successfull...");
   var video = document.querySelector('video#usermedia');
   video.src = window.URL.createObjectURL(localMediaStream);
 
-  video.onloadedmetadata = function(e) {
-    console.log("Getting metadata...");
-  }
+  video.onloadedmetadata = onLoadMetadataCallback;
 }
 
 //getting users audio and vidoe (mic and camera)

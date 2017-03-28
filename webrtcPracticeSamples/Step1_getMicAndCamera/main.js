@@ -21,10 +21,20 @@ function getMediaSuccessCallback(localMediaStream) {
   video.onloadedmetadata = onLoadMetadataCallback;
 }
 
-//getting users audio and vidoe (mic and camera)
 options = {
   video: true,
   audio: true
 }
 
-navigator.getUserMedia(options, getMediaSuccessCallback, getMediaErrorCallback);
+//check which getUserMedai method is available in your browser
+navigator.getUserMedia  = navigator.getUserMedia ||
+                          navigator.webkitGetUserMedia ||
+                          navigator.mozGetUserMedia ||
+                          navigator.msGetUserMedia;
+
+//getting users audio and vidoe (mic and camera) if possible
+if (navigator.getUserMedia) {
+  navigator.getUserMedia(options, getMediaSuccessCallback, getMediaErrorCallback);
+} else {
+  alert("Your browser does not support getUserMedia() element");
+}

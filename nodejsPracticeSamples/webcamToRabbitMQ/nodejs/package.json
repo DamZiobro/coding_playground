@@ -1,0 +1,10 @@
+{
+  "name": "socket-io-chat-application",
+  "version": "0.0.1",
+  "description": "my first socket.io app",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+  }
+}

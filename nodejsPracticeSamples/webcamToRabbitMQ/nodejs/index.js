@@ -1,6 +1,6 @@
 /*
  * index.js
- * Copyright (C) 2017 damian <damian@damian-work>
+ * Copyright (C) 2017 Damian Ziobro <damian@xmementoit.com>
  *
  * Distributed under terms of the MIT license.
  */
@@ -9,100 +9,60 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http)
 var fs = require('fs');
-var rabbitmq = require('amqplib/callback_api');
+var rabbitmq = require('amqplib');
 
-function rabbitMQFrames(rabbitMQAddress, callback) {
-  rabbitmq.connect(rabbitMQAddress, function amqpConnectCallback(err, rabbitMQConn){
-    if(err){
-      return callback(err);
-    }
+function rabbitMQSendFrame(rabbitMQAddress, queue, frame) {
+  //console.log("Sending RabbitMQ message to queue '%s' on address %s", queue, rabbitMQAddress);
+  rabbitmq.connect(rabbitMQAddress).then(function(connection){
+    //console.log("RabbitMQ connected");
+    return connection.createChannel().then( function(channel){
 
-    rabbitMQExchangeName = 'html.Q.frames';
-    rabbitMQQueueName = 'html.Q.frames';
+      //console.log("RabbitMQ - channel created");
+      var isChannel = channel.assertQueue(queue, {durable: true});
 
-    rabbitMQConn.createChannel(function(err, channel) {
-        if(err){
-          return callback(err);
-        }
-        
-        channel.assertExchange(rabbitMQExchangeName, 'fanout', {durable:true});
-
-        channel.assertQueue(rabbitMQQueueName, {exclusive: false}, function(err, rabbitMQqueue) {
-          if(err) {
-            return callback(err);
-          }
-
-          channel.bindQueue(rabbitMQqueue.queue, rabbitMQExchangeName, '');
-          
-          var options = {
-            emitMessage : emitMessage ,
-            onMessageReceived: onMessageReceived
-          }
-
-          channel.consume(rabbitMQqueue.queue, function(message) {
-            options.onMessageReceived(message);
-          }, {noAck: true});
-
-          callback(null, options);
-
-          function emitMessage(message){
-            console.log("publish message in rabbitMQ");
-            channel.publish(rabbitMQExchangeName, '', new Buffer(message)); 
-          }
-
-          function onMessageReceived() {
-            console.log("Message received.") 
-          }
-        });
-         
-    });
-  });
+      return isChannel.then(function(isChannelOK) {
+        //console.log("RabbitMQ - queue found");
+        channel.sendToQueue(queue, new Buffer(frame));
+        console.log("Frame sent to rabbitMQ queue: %s", queue);
+        return channel.close();
+      }).catch(console.warn);
+    }).finally(function() { connection.close(); });
+  }).catch(console.warn);
 }
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + "/index.html");
 });
 
-var rabbitMQHandler = rabbitMQFrames("amqp://localhost", function(err, options){
-  if(err) {
-    throw err; 
-  }
-  options.onMessageReceived = onMessageReceived;
+io.on('connection', function(socket) {
+  console.log('new user connected');
 
-  //function for sending messages back from nodejs to client site
-  function onMessageReceived(message){
-    io.emit('videoFrame', message);
-  }
+  socket.on('disconnect',function(){
+    console.log('user disconnected');
+  });
 
+  socket.on('videoFrame', function(frame){
+    //========================================================================
+    // write that frame received to console log
+    console.log('frame received'); 
+
+    //========================================================================
+    // save frame to file
+    fs.writeFile("/tmp/frame.jpg", frame, function(err){
+      if(err) {
+        return console.log(err);
+      }
+      console.log("Frame saved to file/tmp/frame.jpg ");
+    });
+
+    //========================================================================
+    // push frame to RabbitMQ queue
+    var rabbitMQAddress = "amqp://localhost";
+    var queue = "html.Q.frames";
+    rabbitMQSendFrame(rabbitMQAddress, queue, frame);
     
-  io.on('connection', function(socket) {
-    console.log('new user connected');
-
-    socket.on('disconnect',function(){
-      console.log('user disconnected');
-    });
-
-    socket.on('videoFrame', function(msg){
-      //========================================================================
-      // write that frame received to console log
-      console.log('frame received'); 
-
-      //========================================================================
-      // save frame to file
-      fs.writeFile("/tmp/frame.jpg", msg, function(err){
-        if(err) {
-          return console.log(err);
-        }
-        console.log("Frame saved to file/tmp/frame.jpg ");
-      });
-
-      //========================================================================
-      // push frame to RabbitMQ queue
-      options.emitMessage(msg);
-      
-      //========================================================================
-      
-    });
+    //========================================================================
+    
   });
 });
 

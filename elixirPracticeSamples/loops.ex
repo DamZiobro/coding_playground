@@ -12,6 +12,10 @@ defmodule MyLoop do
   end
 end
 
+defmodule Test do 
+
+end
+
 MyLoop.print_multile_times("Text", 20)
 
 a = 10

@@ -5,10 +5,14 @@
  * Distributed under terms of the MIT license.
  */
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class HelloWorld
 {
     public static void main(String[] args) {
-      Greeter greeter = new Greeter();
+      ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
+      Greeter greeter = (Greeter) ctx.getBean("greeter");
       System.out.println(greeter.sayHello());
     }
 }

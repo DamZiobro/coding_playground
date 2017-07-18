@@ -7,9 +7,12 @@
 
 public class Greeter
 {
-  String mMessage = "Hello world";
+  String message;
+  public Greeter(String message) {
+    this.message = message;
+  }
   public String sayHello(){
-    return mMessage; 
+    return message; 
   }
 }
 

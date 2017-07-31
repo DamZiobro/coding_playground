@@ -1,0 +1,2 @@
+gst-launch -e uridecodebin uri=file:///home/damian/Videos/samples/Sintel_Trailer1.480p.DivX_Plus_HD.mkv ! video/x-raw-yuv ! x264enc ! mpegtsmux ! filesink location=sintel.ts
+

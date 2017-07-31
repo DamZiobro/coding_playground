@@ -1,0 +1,26 @@
+/*
+ * =====================================================================================
+ *       Filename:  main.cpp
+ *    Description:  
+ *        Created:  2014-02-01 18:34 
+ *         Author:  Damian Ziobro        (ziobro.damian@gmail.com)
+ *        Company:  XMementoIT Limited       (info@xmementoit.com)
+ * =====================================================================================
+ */
+
+#include <iostream>
+
+using namespace std;
+
+/* ======= Function ==================================================
+ *   Name: main
+ *   Description: main entry Function
+ * =================================================================== 
+ */
+int main(int argc, const char **argv)
+{
+        
+    return 0;
+}
+
+

@@ -1,0 +1,1 @@
+/home/damian/projects/QtApps/qmlTransparentQt4/build/CMakeFiles/transparent.dir

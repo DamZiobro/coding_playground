@@ -19,3 +19,6 @@
 [submodule "webrtcPracticeSamples/webcam-to-server-side-frames"]
 	path = webrtcPracticeSamples/webcam-to-server-side-frames
 	url = https://github.com/xmementoit/webcam-to-server-side-frames
+[submodule "dockerPracticeSamples/docker-puppet-multiple-os-test"]
+	path = dockerPracticeSamples/docker-puppet-multiple-os-test
+	url = https://github.com/xmementoit/docker-puppet-multiple-os-test

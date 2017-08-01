@@ -16,3 +16,6 @@
 [submodule "dockerPracticeSamples/docker-puppet"]
 	path = dockerPracticeSamples/docker-puppet
 	url = https://github.com/xmementoit/docker-puppet
+[submodule "webrtcPracticeSamples/webcam-to-server-side-frames"]
+	path = webrtcPracticeSamples/webcam-to-server-side-frames
+	url = https://github.com/xmementoit/webcam-to-server-side-frames

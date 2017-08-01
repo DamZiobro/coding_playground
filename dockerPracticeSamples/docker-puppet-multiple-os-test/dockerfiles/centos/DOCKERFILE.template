@@ -1,0 +1,28 @@
+FROM %%FROM_IMAGE%%
+
+MAINTAINER Damian Ziobro <damian@xmementoit.com>
+
+ENV USER docker
+ENV HOME /home/$USER
+
+RUN rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
+RUN yum -y update && yum -y install puppet sudo 
+RUN export PATH=$PATH:/opt/puppet/bin
+
+RUN useradd -m -s /bin/bash $USER && usermod -aG wheel $USER && echo 'docker:docker123' | chpasswd && \
+    echo "%wheel ALL=(ALL) NOPASSWD:  ALL" >> /etc/sudoers
+
+EXPOSE 22 80 
+
+ADD puppet/manifests/* /etc/puppet/manifests/
+
+#========================================================
+# switching to user docker
+USER $USER
+ENV USER docker
+ENV HOME /home/$USER
+
+WORKDIR $HOME
+
+RUN export PATH=$PATH:/opt/puppet/bin
+RUN sudo puppet apply /etc/puppet/manifests/install.pp

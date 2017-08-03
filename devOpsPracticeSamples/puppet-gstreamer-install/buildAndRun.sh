@@ -1,5 +1,16 @@
 #!/bin/bash 
 
+
+trap 'killall' INT
+
+killall() {
+    trap '' INT TERM     # ignore INT and TERM while shutting down
+    echo "**** Shutting down... ****"     # added double quotes
+    kill -TERM 0         # fixed order, send TERM not INT
+    wait
+    echo DONE
+}
+
 # render Dockerfile from templates
 function renderDockerfiles() {
   echo "Rendering dockerfile templates into real Dockerfiles"
@@ -70,8 +81,15 @@ else
   for file in $dockerfiles; do
     echo "Bulilding image for dockerfile: $file"
     suffix=$(echo $file | cut -d. -f2)
-    docker build -t $1-$suffix -f $file . || { echo -e "\n\n ERROR: error while 'docker build'\n\n"; exit 3; }
+    #run building docker images in parallel
+    {
+      docker build -t $1-$suffix -f $file . || { echo -e "\n\n ERROR: error while 'docker build'\n\n"; exit 3; } 
+    } &
   done
+
+  echo -e "Waiting until all docker builds will finish. It may take long time (up to few hours). Please wait..."
+  wait 
+
 fi
 
 #use -priviledged option to be possible to run docker in docker containers

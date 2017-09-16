@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # Copyright © 2017 Damian Ziobro <damian@xmementoit.com>
@@ -12,7 +12,7 @@ import objgraph
 
 class TestClass(object):
     """docstring for TestClass"""
-    #uncomment this line and see the generated graph => lst-references.png in 
+    #uncomment this line and see the generated graph => lst-references.png in
     #order to visually check how __slots__ saves memory
     __slots__ = ('arg1', 'arg2', 'arg3', 'arg4', 'arg5')
 
@@ -24,7 +24,7 @@ class TestClass(object):
         self.arg5 = value +5
 
 
-def create_list_of_TestClass_objects(count):
+def create_list_of_testclass_objs(count):
     """
     function create list containing TestClass objects
     :param count: number of object to create and append to list
@@ -38,22 +38,22 @@ def create_list_of_TestClass_objects(count):
 
     return lst
 
-if __name__ == "__main__":    
-    count = 1
-    lst = create_list_of_TestClass_objects(count)
+if __name__ == "__main__":
+    COUNT = 1
+    LST = create_list_of_testclass_objs(COUNT)
 
     #calculate and prting general memory usage
-    mem = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-    print "Memory usage is; {0} KB".format(mem)
-    print "Avarage size of TestClass object is; {0} KB".format(float(mem)/count)
+    MEM = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    print "Memory usage is; {0} KB".format(MEM)
+    print "Avarage size of TestClass object is; {0} KB".format(float(MEM)/COUNT)
 
-    #invoke Garbage Collector explicitely in order to 
+    #invoke Garbage Collector explicitely in order to
     #collect non longer used memory before investigating memory leak
     gc.collect()
 
     #show object of which types consumes most of memory
     objgraph.show_most_common_types()
-    #build graph of reference of lst object - it takes long time to generate 
+    #build graph of reference of lst object - it takes long time to generate
     # (up to few minutes)
     # DIAGNOSTICS ONLY - DON'T USE IN PRODUCTION CODE
-    objgraph.show_refs(lst, filename='lst-references.png')
+    objgraph.show_refs(LST, filename='lst-references.png')

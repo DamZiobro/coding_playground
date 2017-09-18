@@ -28,6 +28,7 @@ if __name__ == "__main__":
 
     print "str : {0}".format(str(obj))
     print "repr: {0}".format(repr(obj))
+    print "who first? : {0}".format(obj)
         
         
 

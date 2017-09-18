@@ -92,9 +92,6 @@ else
 
 fi
 
-#use -priviledged option to be possible to run docker in docker containers
-#docker run --rm=true --name test -i --privileged -t gstreamer-docker-ubuntu-16-04 /bin/bash
-
 echo "==================================================="
 echo "                   DOCKER IMAGES"
 echo "==================================================="
@@ -106,4 +103,8 @@ docker ps -a
 
 echo "====================================================================================================="
 echo -e "SUCCESS - YOUR PUPPET MANIFESTS HAS BEEN SUCCESSFULL INSTALLED FOR MULTIPLE OPERATING SYSTEMS"
+#use -priviledged option to be possible to run docker in docker containers
+echo -e "You can run one of the images command like this one (for Ubuntu 16.04):"
+echo -e "\ndocker run --rm=true --name test -i --privileged -t $1-ubuntu-16-04 /bin/bash\n"
+
 echo "====================================================================================================="

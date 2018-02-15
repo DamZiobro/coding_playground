@@ -9,6 +9,7 @@
 from flask import Blueprint, redirect, render_template, request
 from monolith.model import db, User
 from monolith.forms import UserForm
+from monolith.auth import admin_required
 
 usersBp = Blueprint('users', __name__)
 
@@ -18,6 +19,7 @@ def users():
     return render_template("users.html", users=users)
 
 @usersBp.route('/create_user', methods=['GET', 'POST'])
+@admin_required
 def create_user():
     form = UserForm()
     if request.method == "POST":

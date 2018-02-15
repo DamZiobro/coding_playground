@@ -13,4 +13,5 @@ bin/python setup.py develop
 
 bin/python monolith/app.py
 
+#bin/celery worker -A monolith.background &
 

@@ -10,12 +10,12 @@
 
 from celery import Celery
 from stravalib import Client
-from monolith.database import db, User, Run
+from monolith.model import db, User, Run
 
-BACKEND = BROKER = 'redis://localhost:6379'
+BACKEND = BROKER = 'amqp://damian:damian@localhost:5672/damianvhost'
 
-celery = Celery(__name__, backend=BACKEND, broker, BROKER)
-__APP = None
+celery = Celery(__name__, backend=BACKEND, broker=BROKER)
+_APP = None
 
 
 def activity2run(user, activity):
@@ -39,7 +39,7 @@ def fetch_all_runs():
     global _APP
     #lazy init
     if _APP is None:
-        from monolity.app import app
+        from monolith.app import app
         db.init_app(app)
         _APP = app
     else:
@@ -57,14 +57,14 @@ def fetch_all_runs():
     def fetch_runs(user):
         client = Client(access_token=user.strava_token)
         runs = 0
-        for activity in client.get_activities(limit=10):
+        for activity in client.get_activities(limit=5):
             if activity.type != "Run":
                 continue
             q = db.session.query(Run).filter(Run.strava_id == activity.id) 
             run = q.first()
             if run is None:
                 db.session.add(activity2run(activity))
+                runs += 1
 
         db.session.commit()
         return runs
-                runs += 1

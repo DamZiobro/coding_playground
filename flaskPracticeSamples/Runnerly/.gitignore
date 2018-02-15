@@ -1,0 +1,10 @@
+*.un~
+lib
+bin
+include
+*.egg-info
+.Python
+__pycache__
+**/*.pyc
+pip-selfcheck.json
+local

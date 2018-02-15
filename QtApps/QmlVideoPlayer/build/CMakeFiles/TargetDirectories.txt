@@ -1,0 +1,1 @@
+/home/damian/projects/QtApps/QmlVideoPlayer/build/CMakeFiles/qmlplayer.dir

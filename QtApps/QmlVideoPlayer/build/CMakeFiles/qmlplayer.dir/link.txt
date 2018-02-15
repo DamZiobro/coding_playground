@@ -1,0 +1,1 @@
+/usr/bin/c++        CMakeFiles/qmlplayer.dir/main.o CMakeFiles/qmlplayer.dir/player.o  -o qmlplayer -rdynamic 

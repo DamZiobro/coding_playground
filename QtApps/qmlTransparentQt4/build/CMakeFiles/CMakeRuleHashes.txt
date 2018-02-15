@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+ddad87ad38666a4fa6115d8ec61f6edc moc_mainwindow.cxx

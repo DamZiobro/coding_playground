@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/transparent.dir/main.o CMakeFiles/transparent.dir/mainwindow.o CMakeFiles/transparent.dir/moc_mainwindow.o  -o transparent -rdynamic -lQtDeclarative -lQtScript -lQtSvg -lQtXmlPatterns -lQtGui -lQtXml -lQtSql -lQtNetwork -lQtCore 

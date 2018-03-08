@@ -13,16 +13,18 @@ Testing multiprocessing for spawning class method
 
 import multiprocessing
 import time
-import random
 
 class Processing(object):
     def __init__(self, name):
         self.name = name
     def process(self):
-        sleep_time = random.randint(0,10)
-        print("task: {}; sleep: {}".format(self.name, sleep_time))
+        sleep_time=2
+        print("processing task: {}; sleep: {}".format(self.name, sleep_time))
         time.sleep(sleep_time)
-        print("processing: {}".format(str(self.name)))
+        print("finish {}".format(str(self.name)))
+
+def invoke_process(processing):
+    return processing.process()
 
 
 if __name__ == "__main__":    
@@ -33,14 +35,8 @@ if __name__ == "__main__":
     cpus = multiprocessing.cpu_count()-1;
     print("nr of cpus: {}".format(cpus))
     if cpus > 1:
-        processes = []
-        for processing in processings:
-            p = multiprocessing.Process(target=processing.process)
-            p.start()
-            processes.append(p)
-        #wait until processes will finish
-        [p.join() for p in processes]
-
+        p = multiprocessing.Pool(processes=cpus)
+        p.map(invoke_process, processings)
     else:
         for processing in processings:
             processing.process()

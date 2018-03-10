@@ -8,7 +8,14 @@ from bs4 import BeautifulSoup
 import multiprocessing
  
  
-HEADERS = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'}
+HEADERS = {
+    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    'Accept-Encoding':'gzip,deflate,sdch',
+    'Accept-Language':'en-GB;en;q=0.8',
+    'Referrer':'https://www.google.com',
+    'Connection':'keep-alive',
+    'Accept':'text/html,application/xhtml+xml,application/xml,q=0.8,image/webp,*/*,q=0.8',
+}
  
  
 def get_results(search_term, number_results, language_code):

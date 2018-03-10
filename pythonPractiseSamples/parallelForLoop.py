@@ -14,7 +14,7 @@ def squareRoot(i):
     return i*i
 
 cpus = multiprocessing.cpu_count()
-#cpus = 1
+cpus = 1
 
 results = Parallel(n_jobs=cpus)(delayed(squareRoot)(i) for i in range(n))
 #print results

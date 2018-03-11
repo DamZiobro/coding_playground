@@ -4,7 +4,7 @@
 #
 
 """
-Counting primer numbers from 0 to 10000000 with help of Apache Spark map-reduce 
+Counting prime numbers from 0 to 10000000 with help of Apache Spark map-reduce 
 + compare time of parallel (Spark-based) vs sequantial calculation
 
 To see parallelism of apache spark you can open 'top' command in separate 

@@ -18,7 +18,7 @@ except ImportError:
     print("ERROR: pyspark module not installed. Use 'sudo pip install pyspark'")
     sys.exit(1)
 
-NUMBERS_THRESHOLD=100000000
+NUMBERS_THRESHOLD=10000000
 
 #running Apache Spark
 if not 'sc' in globals():

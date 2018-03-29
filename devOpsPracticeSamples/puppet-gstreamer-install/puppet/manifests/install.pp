@@ -79,7 +79,7 @@ class system_packages_install {
 }
 include system_packages_install
 
-class gstreamer_install($gstreamer_version = "1.12.2", $install_dir="/tmp/gstreamerInstall") {
+class gstreamer_install($gstreamer_version = "1.14.0", $install_dir="/tmp/gstreamerInstall") {
 
   notice ("Installing gstreamer from sources")
 

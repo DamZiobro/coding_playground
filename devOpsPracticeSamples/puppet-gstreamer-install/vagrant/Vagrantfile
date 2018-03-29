@@ -4,6 +4,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = 'ubuntu/xenial64'
 
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
+  end
+
   config.vm.provision "shell", path: "install_puppet.sh"
   config.vm.provision "puppet" do |puppet|
     puppet.manifests_path = "../puppet/manifests"

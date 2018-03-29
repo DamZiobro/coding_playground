@@ -16,15 +16,19 @@ if __name__ == "__main__":
     graph = Graph("http://localhost:7474", user="neo4j", password="damian")
     graph.delete_all()
 
-    alice = Node("Person", name="0x75142F9C", type="GenericListTopHighlightWidget")
-    bob = Node("Person", name="0x75142F9D", type="GenericListTopHighlightDataModel")
+    alice = Node("Person", name="alice", type="TopHighlightWidget")
+    bob = Node("Person", name="bob", type="TopHighlightDataModel")
 
-    alice_knows_bob = Relationship(alice, "mDataManager", bob)
+    alice_knows_bob = Relationship(alice, "knows", bob)
     graph.create(alice_knows_bob)
 
-    alice2 = Node("Person", name="0x85142F9C", type="GenericListTopHighlightWidget")
-    bob2 = Node("Person", name="0x85142F9D", type="GenericListTopHighlightDataModel")
+    alice2 = Node("Person", name="alice2", type="TopHighlightWidget")
+    bob2 = Node("Person", name="bob2", type="TopHighlightDataModel")
 
-    alice2_knows_bob2 = Relationship(alice2, "mDataManager", bob2)
+    alice2_knows_bob2 = Relationship(alice2, "knows", bob2)
     graph.create(alice2_knows_bob2)
+
+    bob3 = Node("Person", name="bob3", type="AnotherType")
+    bob2_knows_bob3 = Relationship(bob2, "knows", bob3)
+    graph.create(bob2_knows_bob3)
 

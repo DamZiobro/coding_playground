@@ -42,7 +42,7 @@ Vagrant box
 ----
 Corresponding Vagrant box based on Vagrantfile from vagrant directory has been uploaded to Vagrant Cloud. 
 You can find it here: 
-https://app.vagrantup.com/xmementoit/boxes/gstreamer1.14 
+https://app.vagrantup.com/xmementoit/boxes/gstreamer 
 
 Enjoy!
 ------

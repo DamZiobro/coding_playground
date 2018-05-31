@@ -1,1 +1,2 @@
 dockerfiles/*/Dockerfile.*
+vagrant/package.box

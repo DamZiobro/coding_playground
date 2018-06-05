@@ -1,6 +1,7 @@
 #centos:6
 #centos:7
 #fedora:25
-ubuntu:14.04
-ubuntu:16.04
-debian:7
+#ubuntu:14.04
+#ubuntu:16.04
+#debian:7
+ubuntu:18.04

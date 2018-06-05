@@ -38,5 +38,11 @@ docker@a0e3abcfa905:~$ gst-inspect-1.0 --version
 If you see output of command `gst-inspect-1.0 --version` it means that vim has been
 successfully installed through puppet manifest file.
 
+Vagrant box
+----
+Corresponding Vagrant box based on Vagrantfile from vagrant directory has been uploaded to Vagrant Cloud. 
+You can find it here: 
+https://app.vagrantup.com/xmementoit/boxes/gstreamer 
+
 Enjoy!
 ------

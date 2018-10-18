@@ -5,12 +5,13 @@ cmake_minimum_required(VERSION 2.6)
 project(cpp11FeaturesTest)
 
 set(CMAKE_INSTALL_PREFIX /usr)
-ADD_DEFINITIONS(-std=c++11)
+ADD_DEFINITIONS(-std=c++11 -pthread)
 
 #source of project
 set(SRC
 
-cpp11FeaturesTest.cpp
+#cpp11FeaturesTest.cpp
+promiseTest.cpp
 )
 
 #==============================================================================

@@ -4,6 +4,7 @@
 #include <thread>         // std::thread
 #include <future>         // std::promise, std::future
 #include <unistd.h>
+#include <vector>
 
 using namespace std;
 
@@ -31,5 +32,21 @@ int main ()
   th1.join();
   th2.join();
   th3.join();
+
+
+  //async
+  std::future<int> result( std::async([](int m, int n) { return m + n;} , 2, 4));
+  std::cout << "Message from main." << std::endl;
+  std::cout << result.get() << std::endl;
+
+  std::vector<std::future<int>> futures;
+  for (int i = 0; i < 10; i++) {
+    futures.push_back(std::async([&i]()->int{ return 2*i;}));
+  }
+
+  for (auto &e : futures) {
+    std::cout << e.get() << std::endl;
+  }
+
   return 0;
 }

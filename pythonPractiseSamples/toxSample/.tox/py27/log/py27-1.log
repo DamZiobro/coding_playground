@@ -1,0 +1,18 @@
+actionid: py27
+msg: installpkg
+cmdargs: '/home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/py27/bin/python -m pip install --exists-action w /home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/.tmp/package/1/standardlibrarytests-0.1.1.zip'
+
+Processing ./.tox/.tmp/package/1/standardlibrarytests-0.1.1.zip
+Collecting enum34 (from standardlibrarytests==0.1.1)
+  Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.VerifiedHTTPSConnection object at 0x7f0e6393c5d0>: Failed to establish a new connection: [Errno 101] Network is unreachable',)': /simple/enum34/
+  Using cached https://files.pythonhosted.org/packages/c5/db/e56e6b4bbac7c4a06de1c50de6fe1ef3810018ae11732a50f15f62c7d050/enum34-1.1.6-py2-none-any.whl
+Building wheels for collected packages: standardlibrarytests
+  Running setup.py bdist_wheel for standardlibrarytests: started
+  Running setup.py bdist_wheel for standardlibrarytests: finished with status 'done'
+  Stored in directory: /home/damian/.cache/pip/wheels/21/83/78/b134a0b11dfc09af468fad2f4a2d2e8b04be5a649afa6217c1
+Successfully built standardlibrarytests
+Installing collected packages: enum34, standardlibrarytests
+  Found existing installation: standardlibrarytests 0.1.1
+    Not uninstalling standardlibrarytests at /home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample, outside environment /home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/py27
+    Can't uninstall 'standardlibrarytests'. No files were found to uninstall.
+Successfully installed enum34-1.1.6 standardlibrarytests-0.1.1

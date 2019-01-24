@@ -1,0 +1,22 @@
+actionid: py27
+msg: runtests
+cmdargs: '/home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/py27/bin/python setup.py test'
+
+running test
+running egg_info
+writing standardlibrarytests.egg-info/PKG-INFO
+writing top-level names to standardlibrarytests.egg-info/top_level.txt
+writing dependency_links to standardlibrarytests.egg-info/dependency_links.txt
+writing requirements to standardlibrarytests.egg-info/requires.txt
+reading manifest file 'standardlibrarytests.egg-info/SOURCES.txt'
+writing manifest file 'standardlibrarytests.egg-info/SOURCES.txt'
+running build_ext
+test_add_to_update_properly_updates_values (tests.text.test_datastructures.TextTest)
+test add_to_counter test ... ok
+test_add_to_update_throw_if_constant_argument (tests.text.test_datastructures.TextTest)
+test whether add_to_counter ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK

@@ -1,0 +1,54 @@
+actionid: tox
+msg: packaging
+cmdargs: '/usr/bin/python /home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/setup.py sdist --formats=zip --dist-dir /home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/dist'
+
+running sdist
+running egg_info
+writing requirements to standardlibrarytests.egg-info/requires.txt
+writing standardlibrarytests.egg-info/PKG-INFO
+writing top-level names to standardlibrarytests.egg-info/top_level.txt
+writing dependency_links to standardlibrarytests.egg-info/dependency_links.txt
+reading manifest file 'standardlibrarytests.egg-info/SOURCES.txt'
+writing manifest file 'standardlibrarytests.egg-info/SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt, README.md
+
+running check
+warning: check: missing required meta-data: url
+
+creating standardlibrarytests-0.1.1
+creating standardlibrarytests-0.1.1/standardlibrarytests.egg-info
+creating standardlibrarytests-0.1.1/tests
+creating standardlibrarytests-0.1.1/tests/text
+creating standardlibrarytests-0.1.1/text
+copying files to standardlibrarytests-0.1.1...
+copying setup.py -> standardlibrarytests-0.1.1
+copying standardlibrarytests.egg-info/PKG-INFO -> standardlibrarytests-0.1.1/standardlibrarytests.egg-info
+copying standardlibrarytests.egg-info/SOURCES.txt -> standardlibrarytests-0.1.1/standardlibrarytests.egg-info
+copying standardlibrarytests.egg-info/dependency_links.txt -> standardlibrarytests-0.1.1/standardlibrarytests.egg-info
+copying standardlibrarytests.egg-info/requires.txt -> standardlibrarytests-0.1.1/standardlibrarytests.egg-info
+copying standardlibrarytests.egg-info/top_level.txt -> standardlibrarytests-0.1.1/standardlibrarytests.egg-info
+copying tests/__init__.py -> standardlibrarytests-0.1.1/tests
+copying tests/text/__init__.py -> standardlibrarytests-0.1.1/tests/text
+copying tests/text/test_datastructures.py -> standardlibrarytests-0.1.1/tests/text
+copying tests/text/test_textprocessor.py -> standardlibrarytests-0.1.1/tests/text
+copying text/__init__.py -> standardlibrarytests-0.1.1/text
+copying text/datastructures.py -> standardlibrarytests-0.1.1/text
+copying text/textprocessor.py -> standardlibrarytests-0.1.1/text
+Writing standardlibrarytests-0.1.1/setup.cfg
+creating '.tox/dist/standardlibrarytests-0.1.1.zip' and adding 'standardlibrarytests-0.1.1' to it
+adding 'standardlibrarytests-0.1.1/setup.cfg'
+adding 'standardlibrarytests-0.1.1/PKG-INFO'
+adding 'standardlibrarytests-0.1.1/setup.py'
+adding 'standardlibrarytests-0.1.1/text/datastructures.py'
+adding 'standardlibrarytests-0.1.1/text/textprocessor.py'
+adding 'standardlibrarytests-0.1.1/text/__init__.py'
+adding 'standardlibrarytests-0.1.1/standardlibrarytests.egg-info/requires.txt'
+adding 'standardlibrarytests-0.1.1/standardlibrarytests.egg-info/PKG-INFO'
+adding 'standardlibrarytests-0.1.1/standardlibrarytests.egg-info/SOURCES.txt'
+adding 'standardlibrarytests-0.1.1/standardlibrarytests.egg-info/dependency_links.txt'
+adding 'standardlibrarytests-0.1.1/standardlibrarytests.egg-info/top_level.txt'
+adding 'standardlibrarytests-0.1.1/tests/__init__.py'
+adding 'standardlibrarytests-0.1.1/tests/text/__init__.py'
+adding 'standardlibrarytests-0.1.1/tests/text/test_datastructures.py'
+adding 'standardlibrarytests-0.1.1/tests/text/test_textprocessor.py'
+removing 'standardlibrarytests-0.1.1' (and everything under it)

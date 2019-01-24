@@ -1,0 +1,15 @@
+actionid: py27
+msg: installpkg
+cmdargs: '/home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/py27/bin/python -m pip install --no-deps -U /home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/.tmp/package/3/standardlibrarytests-0.1.1.zip'
+
+Processing ./.tox/.tmp/package/3/standardlibrarytests-0.1.1.zip
+Building wheels for collected packages: standardlibrarytests
+  Running setup.py bdist_wheel for standardlibrarytests: started
+  Running setup.py bdist_wheel for standardlibrarytests: finished with status 'done'
+  Stored in directory: /home/damian/.cache/pip/wheels/f9/95/2a/15b88e3710c47b62b3f4001f9cc27eaa2f906c00f53a32a0c5
+Successfully built standardlibrarytests
+Installing collected packages: standardlibrarytests
+  Found existing installation: standardlibrarytests 0.1.1
+    Not uninstalling standardlibrarytests at /home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample, outside environment /home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/py27
+    Can't uninstall 'standardlibrarytests'. No files were found to uninstall.
+Successfully installed standardlibrarytests-0.1.1

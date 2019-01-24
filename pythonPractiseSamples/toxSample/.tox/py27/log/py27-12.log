@@ -1,0 +1,6 @@
+actionid: py27
+msg: envreport
+cmdargs: '/home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/py27/bin/python -m pip freeze'
+
+enum34==1.1.6
+standardlibrarytests==0.1.1

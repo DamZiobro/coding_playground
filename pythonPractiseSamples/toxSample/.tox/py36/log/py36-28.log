@@ -1,5 +1,0 @@
-actionid: py36
-msg: envreport
-cmdargs: '/home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/py36/bin/python -m pip freeze'
-
-standardlibrarytests==0.1.1

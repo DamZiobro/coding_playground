@@ -20,8 +20,12 @@ install_requires = [
 
 test_requires = [
     'pytest>=2.8.0',
-    'pytest-xdist'
+    'pytest-xdist',
+    'pytest-cov',
+    'pytest-mock'
     ]
+
+packages=['helloworld']
 
 class PyTest(TestCommand):
     user_options = [('pytest-args=', 'a', "Arguments to pass into py.test")]
@@ -33,6 +37,10 @@ class PyTest(TestCommand):
             self.pytest_args = ['-n', str(cpu_count()), '--boxed']
         except (ImportError, NotImplementedError):
             self.pytest_args = ['-n', '1', '--boxed']
+
+        # add coverage options
+        for package in packages:
+            self.pytest_args += ['--cov', package]
 
     def finalize_options(self):
         TestCommand.finalize_options(self)
@@ -53,5 +61,5 @@ setup(
     install_requires=install_requires,
     cmdclass={'test':PyTest},
     tests_require=test_requires,
-    packages=['helloworld'],
+    packages=packages,
 )

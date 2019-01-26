@@ -2,4 +2,5 @@
 .tox/
 hello_world.egg-info/
 helloworld/__pycache__/
+.coverage
 helloworld/test/__pycache__/

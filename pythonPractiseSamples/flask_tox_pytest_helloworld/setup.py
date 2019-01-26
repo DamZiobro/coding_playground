@@ -10,6 +10,7 @@ setup config for Flask helloworld app
 '''
 
 import sys
+import os
 
 from setuptools import setup
 from setuptools.command.test import test as TestCommand
@@ -22,10 +23,12 @@ test_requires = [
     'pytest>=2.8.0',
     'pytest-xdist',
     'pytest-cov',
-    'pytest-mock'
+    'pytest-mock',
+    'pytest-pylint',
+    'pytest-bandit'
     ]
 
-packages=['helloworld']
+packages = ['helloworld']
 
 class PyTest(TestCommand):
     user_options = [('pytest-args=', 'a', "Arguments to pass into py.test")]
@@ -38,9 +41,26 @@ class PyTest(TestCommand):
         except (ImportError, NotImplementedError):
             self.pytest_args = ['-n', '1', '--boxed']
 
-        # add coverage options
+        # add pylint - static code analyser
+        homepylintrc = os.getenv('HOME').join('.pylintrc')
+        pylintrc = (
+            homepylintrc \
+            if os.path.exists(homepylintrc) \
+            else 'tox.ini' \
+            )
+        self.pytest_args += ['--pylint', '--pylint-rcfile', pylintrc]
+
+        # add coverage options - test coverage analyzer
         for package in packages:
             self.pytest_args += ['--cov', package]
+
+        # add bandit - security scanner
+        self.pytest_args += ['--bandit']
+
+        # print pytest args as string
+        print("pytest_args: {}".format(' '.join(self.pytest_args)))
+
+
 
     def finalize_options(self):
         TestCommand.finalize_options(self)

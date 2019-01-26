@@ -13,15 +13,17 @@ Test main.py
 import pytest
 from helloworld.main import app
 
-@pytest.fixture
-def flask_client():
-    """fixture simulating flask_client"""
-    app.config['TESTING'] = True
-    client = app.test_client()
+class TestFlaskApp(object):
+    """TestFlaskApp"""
 
-    yield client
+    @pytest.fixture
+    def fixture_flask(self):
+        """fixture simulating fixture_flask"""
+        app.config['TESTING'] = True
+        client = app.test_client()
 
-def test_hello_world_route(flask_client):
-    """docstring for test_main"""
-    assert b'Hello World' in flask_client.get('/').data
+        yield client
 
+    def test_hello_world_route(self, fixture_flask):
+        """docstring for test_main"""
+        assert b'Hello World' in fixture_flask.get('/').data

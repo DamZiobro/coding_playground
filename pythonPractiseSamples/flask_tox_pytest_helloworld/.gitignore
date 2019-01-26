@@ -1,0 +1,5 @@
+.eggs/
+.tox/
+hello_world.egg-info/
+helloworld/__pycache__/
+helloworld/test/__pycache__/

@@ -1,6 +1,7 @@
-.eggs/
-.tox/
-hello_world.egg-info/
-helloworld/__pycache__/
-.coverage
-helloworld/test/__pycache__/
+**/.eggs/
+**/.tox/
+*.egg-info/
+**/__pycache__/
+**/.coverage
+**/__pycache__/
+**/.mypy_cache/

@@ -21,7 +21,7 @@ def flask_client():
 
     yield client
 
-
-
-def test_main():
+def test_hello_world_route(flask_client):
     """docstring for test_main"""
+    assert b'Hello World' in flask_client.get('/').data
+

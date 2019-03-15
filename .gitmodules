@@ -22,3 +22,6 @@
 [submodule "dockerPracticeSamples/docker-puppet-multiple-os-test"]
 	path = dockerPracticeSamples/docker-puppet-multiple-os-test
 	url = https://github.com/xmementoit/docker-puppet-multiple-os-test
+[submodule "concourse-tutorial"]
+	path = concourse-tutorial
+	url = https://github.com/starkandwayne/concourse-tutorial.git

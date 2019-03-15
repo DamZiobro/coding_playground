@@ -1,7 +1,0 @@
-actionid: py27
-msg: getenv
-cmdargs: '/usr/bin/python -m virtualenv --python /usr/bin/python py27'
-
-Already using interpreter /usr/bin/python
-New python executable in /home/damian/code/practiseSamples/pythonPractiseSamples/pythonStandardLibraryByExample/.tox/py27/bin/python
-Installing setuptools, pip, wheel...done.

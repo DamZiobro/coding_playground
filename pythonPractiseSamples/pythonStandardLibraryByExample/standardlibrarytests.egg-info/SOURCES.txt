@@ -1,0 +1,13 @@
+setup.py
+standardlibrarytests.egg-info/PKG-INFO
+standardlibrarytests.egg-info/SOURCES.txt
+standardlibrarytests.egg-info/dependency_links.txt
+standardlibrarytests.egg-info/requires.txt
+standardlibrarytests.egg-info/top_level.txt
+tests/__init__.py
+tests/text/__init__.py
+tests/text/test_datastructures.py
+tests/text/test_textprocessor.py
+text/__init__.py
+text/datastructures.py
+text/textprocessor.py

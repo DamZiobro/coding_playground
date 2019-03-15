@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  app:
+    container_name: "${APP_NAME}"
+    build:
+      context: "./${APP_NAME}"
+      dockerfile: ./Dockerfile
+    image: "${APP_NAME}-docker-image"
+    environment:
+      - FLASK_APP=./${APP_MAIN_FILE}
+      - FLASK_ENV=production
+      - SERVER_NAME=localhost.dev
+    tty: true
+    stdin_open: true
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./${APP_NAME}:/app"
+    working_dir: "/app"
+    command: ./run.sh
+    networks:
+      - dev
+
+networks:
+  dev:
+    external: true

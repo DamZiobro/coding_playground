@@ -25,3 +25,6 @@
 [submodule "concourse-tutorial"]
 	path = concourse-tutorial
 	url = https://github.com/starkandwayne/concourse-tutorial.git
+[submodule "flaskPracticeSamples/flask_helloworld"]
+	path = flaskPracticeSamples/flask_helloworld
+	url = git@github.com:xmementoit/flask_helloworld.git

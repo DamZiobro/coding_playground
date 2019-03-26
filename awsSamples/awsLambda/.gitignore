@@ -1,0 +1,4 @@
+example.zip
+terraform.tfstate
+terraform.tfstate.backup
+output.txt

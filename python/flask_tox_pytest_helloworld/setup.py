@@ -16,7 +16,7 @@ from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
 install_requires = [
-    'flask==0.12.2'
+    'flask==0.12.3'
     ]
 
 test_requires = [

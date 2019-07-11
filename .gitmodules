@@ -1,30 +1,30 @@
 [submodule "cppPractiseSamples/CppAdventureExamples"]
-	path = cppPractiseSamples/CppAdventureExamples
+	path = cpp/CppAdventureExamples
 	url = https://github.com/xmementoit/CppAdventureExamples
 [submodule "csharpPractiseSamples/CSharpAdventureExamples"]
-	path = csharpPractiseSamples/CSharpAdventureExamples
+	path = csharp/CSharpAdventureExamples
 	url = https://github.com/xmementoit/CSharpAdventureExamples
 [submodule "cppPractiseSamples/MJPEGDecoder"]
-	path = cppPractiseSamples/MJPEGDecoder
+	path = cpp/MJPEGDecoder
 	url = https://github.com/xmementoit/MJPEGDecoder
 [submodule "cppPractiseSamples/tddCppSkeleton"]
-	path = cppPractiseSamples/tddCppSkeleton
+	path = cpp/tddCppSkeleton
 	url = https://github.com/xmementoit/tddCppSkeleton
 [submodule "dockerPracticeSamples/dockerTestWebApp"]
-	path = dockerPracticeSamples/dockerTestWebApp
+	path = docker/dockerTestWebApp
 	url = git@github.com:xmementoit/dockerTestWebApp
 [submodule "dockerPracticeSamples/docker-puppet"]
-	path = dockerPracticeSamples/docker-puppet
+	path = docker/docker-puppet
 	url = https://github.com/xmementoit/docker-puppet
 [submodule "webrtcPracticeSamples/webcam-to-server-side-frames"]
-	path = webrtcPracticeSamples/webcam-to-server-side-frames
+	path = webrtc/webcam-to-server-side-frames
 	url = https://github.com/xmementoit/webcam-to-server-side-frames
 [submodule "dockerPracticeSamples/docker-puppet-multiple-os-test"]
-	path = dockerPracticeSamples/docker-puppet-multiple-os-test
+	path = docker/docker-puppet-multiple-os-test
 	url = https://github.com/xmementoit/docker-puppet-multiple-os-test
 [submodule "concourse-tutorial"]
 	path = concourse-tutorial
 	url = https://github.com/starkandwayne/concourse-tutorial.git
 [submodule "flaskPracticeSamples/flask_helloworld"]
-	path = flaskPracticeSamples/flask_helloworld
+	path = flask/flask_helloworld
 	url = git@github.com:xmementoit/flask_helloworld.git

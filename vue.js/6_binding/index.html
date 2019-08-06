@@ -1,0 +1,14 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script type = "text/javascript" src = "js/vue.js"></script>
+   </head>
+   <body>
+      <div id = "databinding">
+         {{title}}<br/>
+         <a href = "{{url}}" target = "_blank"> BBC </a><br/>
+         <a v-bind:href = "url" target = "_blank"> BBC (binding)</a><br/>
+      </div>
+      <script type = "text/javascript" src = "js/vue_instance.js"></script>
+   </body>
+</html>

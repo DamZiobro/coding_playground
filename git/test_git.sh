@@ -40,12 +40,12 @@ git graph
 git checkout branch-1 #switch to already existing branch branch-1
 echo b >> text2.txt 
 git add . 
-git commit -m "second commit to branch-2-from-branch-1"
+git commit -m "third branch-1"
 git graph
 
 echo b >> text2.txt 
 git add . 
-git commit -m "second commit to branch-2-from-branch-1"
+git commit -m "forth commit to branch-1"
 git graph
 
 git merge branch-2-from-branch-1

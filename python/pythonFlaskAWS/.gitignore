@@ -1,1 +1,7 @@
 __pycache__
+.venv
+.python-version
+terraform/.terraform
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+

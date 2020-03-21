@@ -12,12 +12,12 @@ import asyncio
 
 async def compute():
     for i in range(5):
-        print("compute %d" & i)
+        print(f"compute {i}")
         await asyncio.sleep(.1)
 
 async def compute2():
     for i in range(5):
-        print("compute2 %d" & i)
+        print(f"compute2 {i}")
         await asyncio.sleep(.2)
 
 async def main():

@@ -1,0 +1,35 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+# vim:fenc=utf-8
+#
+# Copyright © 2020 damian <damian@damian-laptop>
+#
+# Distributed under terms of the MIT license.
+
+import fbchat 
+import os
+import sys
+from fbchat.models import *
+
+username = os.environ.get("FACEBOOK_USERNAME")
+password = os.environ.get("FACEBOOK_PASSWORD")
+
+if username is None or password is None:
+    print("ERROR: FACEBOOK_USERNAME or FACEBOOK_PASSWORD env vars not set")
+    sys.exit(1)
+
+if len(sys.argv) != 3:
+    print("ERROR: Usage: messenger FRIEND_NAME MESSAGE")
+    sys.exit(2)
+
+friend_name = sys.argv[1]
+message = sys.argv[2]
+
+client = fbchat.Client(username, password) 
+friends = client.searchForUsers(friend_name)  # return a list of names 
+friend = friends[0] 
+sent = client.send(Message(message), thread_id=friend.uid, thread_type=ThreadType.USER) 
+if sent: 
+    print("Message sent successfully!") 
+
+client.logout()

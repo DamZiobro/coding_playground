@@ -8,18 +8,21 @@
 import time
 import logging
 import asyncio
-from aiohttp import ClientSession, ClientResponseError
 import requests
+import httpx 
 
 logging.getLogger().setLevel(logging.INFO)
 
-async def fetch(url):
+async def fetch(url, i):
     try:
-        #async with session.get(url, timeout=15) as response:
-            #resp = await response.read()
-        resp = requests.get(url)
-    except ClientResponseError as e:
-        logging.warning(e.code)
+        print(f"start task: {i}")
+
+        client = httpx.AsyncClient()
+        resp = await client.get(url)
+
+        #resp = requests.get(url)
+
+        print(f"stop task: {i}")
     except asyncio.TimeoutError:
         logging.warning("Timeout")
     except Exception as e:
@@ -33,10 +36,8 @@ async def fetch_async(loop, r):
     # please use url by your choice
     url = "http://dummy.restapiexample.com/api/v1/employees"
     tasks = []
-    # try to use one client session
-    #async with ClientSession() as session:
     for i in range(r):
-        task = asyncio.ensure_future(fetch(url))
+        task = asyncio.ensure_future(fetch(url, i))
         tasks.append(task)
     # await response outside the for loop
     responses = await asyncio.gather(*tasks)
@@ -44,7 +45,7 @@ async def fetch_async(loop, r):
 
 
 if __name__ == '__main__':
-    for ntimes in [1, 10, 100, 500, 1000]:
+    for ntimes in [1, 10, 100, 500]:
         start_time = time.time()
         loop = asyncio.get_event_loop()
         future = asyncio.ensure_future(fetch_async(loop, ntimes))

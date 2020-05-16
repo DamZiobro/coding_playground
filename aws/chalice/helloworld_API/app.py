@@ -2,10 +2,18 @@ from chalice import Chalice
 
 app = Chalice(app_name='helloworld')
 
+CITIES_TO_REGION = {
+    'Leeds': 'West Yorkshire',
+    'Sheffield': 'South Yorkshire',
+}
 
 @app.route('/')
 def index():
     return {'hello': 'world'}
+
+@app.route('/cities/{city}')
+def state_of_city(city):
+    return {'state': CITIES_TO_REGION[city]}
 
 
 # The view function above will return {"hello": "world"}

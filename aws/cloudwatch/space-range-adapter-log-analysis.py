@@ -101,13 +101,12 @@ class LogFilter(object):
                                   )
             self.pdseries = data
             column_name = self.name.replace(f"{LOG_GROUP}-", "")
-            if self.name == f"{LOG_GROUP}-nr-of-items-per-store":
+            if column_name == f"nr-of-items-per-store":
                 self.pdseries.columns = ['location', column_name]
                 self.pdseries['status'] = "200"
                 self.pdseries[column_name] = self.pdseries[column_name].apply(lambda x: x.split("/")[1])
-                print(self.pdseries)
-                self.pdseries = data.groupby(['location', 'status']).size()
-                self.pdseries = self.pdseries.rename(column_name)
+                self.pdseries = data.groupby(['location', 'status']).nth(0)
+                #print(self.pdseries)
             else:
                 #print(f"file: {self.filename}; filter: '{self.filter}'")
                 self.pdseries = data.groupby(['location', 'status']).size()
@@ -214,10 +213,9 @@ if __name__ == "__main__":
         final_dataframe = final_dataframe.fillna(0)
         final_dataframe = final_dataframe.astype("int32")
         final_dataframe = final_dataframe.sort_values(['location', 'status'])
-        #final_dataframe.loc['Total'] = final_dataframe.sum(numeric_only=True)
+        final_dataframe.loc['Total'] = final_dataframe.sum(numeric_only=True, axis=0)
         #list_name= ["putProductPlacements","getProductPlacements", "getSpaceLocations","putSiteRange"]
         #final_dataframe['total']=final_dataframe.loc[:,list_name].sum(axis=1)
         final_dataframe.to_csv("/tmp/space-range-adapter-analysis.csv")
         print(final_dataframe.to_string())
-        #print(final_dataframe.info())
 

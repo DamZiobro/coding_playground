@@ -128,7 +128,7 @@ class LogFilter(object):
 filters = [
     LogFilter(
         name=f"{LOG_GROUP}-process-times",
-        filter="FUNCTIONALITY"
+        filter="END FUNCTIONALITY"
     ),
     LogFilter(
         name=f"{LOG_GROUP}-nr-of-items-per-store",

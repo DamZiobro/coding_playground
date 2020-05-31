@@ -20,14 +20,25 @@ import datetime
 
 def get_log_streams(log_group, start_limit=1, end_limit=20):
 
+    log_streams = []
+
     client = boto3.client('logs')
-    response = client.describe_log_streams(
-        logGroupName=log_group, 
-        orderBy="LastEventTime",
-        descending=True,
-        limit=end_limit
-    )
-    return response.get("logStreams")[start_limit-1:]
+    paginator = client.get_paginator('describe_log_streams')
+
+    config = {
+        'MaxItems': end_limit,
+        'PageSize': 50
+    }
+
+    kwargs = {
+            'logGroupName':log_group, 
+            'orderBy':"LastEventTime",
+            'descending':True,
+    }
+    for page in paginator.paginate(PaginationConfig = config, **kwargs):
+        log_streams += page.get("logStreams")
+
+    return log_streams[start_limit-1:]
 
 if __name__ == '__main__':
     args = docopt.docopt(__doc__)

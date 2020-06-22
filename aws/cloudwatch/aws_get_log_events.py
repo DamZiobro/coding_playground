@@ -117,7 +117,7 @@ def get_log_events(log_group, log_stream=None, start_time=None, end_time=None, l
         log_streams = response.get("logStreams")[start_log_streams_number-1:]
 
     output_files = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
         try:
             stream_futures = {executor.submit(get_logs, log_group, stream, start_time, end_time, limit, filter, regex, is_print, filename_prefix): stream for stream in log_streams}
         except Exception as ex:

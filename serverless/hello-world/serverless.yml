@@ -1,0 +1,32 @@
+service: hello-world
+
+provider:
+  name: aws
+  runtime: python3.7
+  timeout: 900
+
+  iamrole:
+    - Effect: "Allow"
+      Action:
+          - "sqs:SendMessage"
+      Resource:
+          Fn::GetAtt: [sqsqueue, Arn]
+
+functions:
+  hello:
+    handler: handler.hello
+    events: 
+      - eventBridge:
+        schedule: rate(10 minutes)
+
+
+  hello2:
+    handler: handler.hello2
+
+resources:
+    Resources:
+        sqsqueue:
+            Type: AWS::SQS::Queue
+        
+        mydynamo:
+            Type: AWS::DynamoDB

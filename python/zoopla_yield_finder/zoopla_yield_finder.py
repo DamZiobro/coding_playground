@@ -16,6 +16,7 @@ import logging
 import os
 import re
 from enum import Enum
+from json import JSONDecodeError
 
 import requests
 
@@ -62,7 +63,11 @@ def lambda_handler(event, context):
                 params=query_params
             )
 
-            property_list_prettyprint = json.dumps(resp.json(), indent=4, sort_keys=True)
+            try:
+                property_list_prettyprint = json.dumps(resp.json(), indent=4, sort_keys=True)
+            except JSONDecodeError:
+                logger.error(f"non-json response: {resp.content}")
+                return 100
             property_list = resp.json().get("listing")
             page_size = len(property_list)
             if page_size:

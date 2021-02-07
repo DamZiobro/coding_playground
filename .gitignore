@@ -6,4 +6,5 @@
 **/*.lock
 **/*.class
 **/__pycache__
+**/node_modules
 apacheSpark/results.txt

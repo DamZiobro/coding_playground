@@ -5,4 +5,5 @@
 **/target
 **/*.lock
 **/*.class
+**/__pycache__
 apacheSpark/results.txt

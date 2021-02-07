@@ -1,0 +1,17 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script type = "text/javascript" src = "js/vue.js"></script>
+   </head>
+   <body>
+      <div id = "databinding">
+         <input type = "text" v-on:keyup.enter = "showinputvalue"
+            v-bind:style = "styleobj" placeholder = "Enter Fruits Names"/>
+         <h1 v-if = "items.length>0">Display Fruits Name</h1>
+         <ul>
+            <li v-for = "a in items">{{a}}</li>
+         </ul>
+      </div>
+      <script type = "text/javascript" src = "js/vue_component.js"></script>
+   </body>
+</html>

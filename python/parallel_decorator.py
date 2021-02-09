@@ -5,7 +5,7 @@
 
 import requests
 import sys
-from generic_decorators import make_parallel, timing
+from generic_decorators import make_parallel, timing, make_parallel_processes
 
 
 def sample_function(post_id):
@@ -37,9 +37,18 @@ def parallel_function_trigger():# Paralleized way of calling the function
     list_of_post_ids = list(range(1, 20))
     return make_parallel(sample_function)(list_of_post_ids)
 
+@timing
+def parallel_multiprocessing_function_trigger():# Paralleized way of calling the function
+    print(" -> start 'parallel_multiprocessing_function_trigger'")
+    list_of_post_ids = list(range(1, 20))
+    return make_parallel_processes(sample_function)(list_of_post_ids)
+
 def main():
-    serial_function_trigger()
-    parallel_function_trigger()
+    ret1 = serial_function_trigger()
+    ret2 = parallel_function_trigger()
+    ret3 = parallel_multiprocessing_function_trigger()
+
+    #print(f"results: {ret3}")
 
 if __name__ == "__main__":
     main()

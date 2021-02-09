@@ -4,6 +4,7 @@
 #
 
 import requests
+import sys
 from generic_decorators import make_parallel, timing
 
 
@@ -20,6 +21,7 @@ def sample_function(post_id):
 
 @timing
 def serial_function_trigger():
+    print(" -> start 'serial_function_trigger'")
     list_of_post_ids = list(range(1, 20))
 
     # Serial way of calling the function
@@ -31,6 +33,7 @@ def serial_function_trigger():
 
 @timing
 def parallel_function_trigger():# Paralleized way of calling the function
+    print(" -> start 'parallel_function_trigger'")
     list_of_post_ids = list(range(1, 20))
     return make_parallel(sample_function)(list_of_post_ids)
 

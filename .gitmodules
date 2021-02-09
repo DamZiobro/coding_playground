@@ -28,3 +28,6 @@
 [submodule "flaskPracticeSamples/flask_helloworld"]
 	path = flask/flask_helloworld
 	url = git@github.com:xmementoit/flask_helloworld.git
+[submodule "python/generic-decorators"]
+	path = python/generic-decorators
+	url = git@github.com:DamZiobro/generic-decorators.git

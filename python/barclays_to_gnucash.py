@@ -115,6 +115,7 @@ def transform(description):
         # clothes expenses
         "next retail": ("Payment for clothes at Next Retail", "Expenses:Other Expenses:Clothes"),
         "sportsdirect": ("Payment for clothes at Sports Direct", "Expenses:Other Expenses:Clothes"),
+        "avecsportltd": ("Payment for clothes at Avec", "Expenses:Other Expenses:Clothes"),
 
         # dining and eating out expenses
         "starbucks": ("Payment for dining at Starbucks", "Expenses:Other Expenses:Dining"),

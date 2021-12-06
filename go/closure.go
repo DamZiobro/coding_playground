@@ -1,26 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
-func getSequence() func() int {
-   i:=0
-   return func() int {
-      i+=1
-      return i  
-   }
+func getId(seed int, pre string) func() string {
+	i := seed
+	return func() string {
+		i += 1
+		return pre + "-" + strconv.Itoa(i)
+	}
 }
 
-func main(){
-   /* nextNumber is now a function with i as 0 */
-   nextNumber := getSequence()  
+func main() {
+	/* nextId is now a function with i as 0 */
+	employeeId := getId(0, "E")
 
-   /* invoke nextNumber to increase i by 1 and return the same */
-   fmt.Println(nextNumber())
-   fmt.Println(nextNumber())
-   fmt.Println(nextNumber())
-   
-   /* create a new sequence and see the result, i is 0 again*/
-   nextNumber1 := getSequence()  
-   fmt.Println(nextNumber1())
-   fmt.Println(nextNumber1())
+	/* invoke nextNumber to increase i by 1 and return the same */
+	fmt.Println(employeeId())
+	fmt.Println(employeeId())
+	fmt.Println(employeeId())
+
+	/* create a new id and see the result, i is the given seed*/
+	attendanceId1 := getId(10, "A")
+	fmt.Println(attendanceId1())
+	fmt.Println(attendanceId1())
+	fmt.Println(employeeId())
+	fmt.Println(attendanceId1())
 }

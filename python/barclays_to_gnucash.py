@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 """
 Get Barclays export CSV file with transaction
 and prepare GnuCash-friendly CSV file.
@@ -73,7 +73,7 @@ def transform(description):
         "id mobile": ("phone payment", "Expenses:Bussiness Expenses:Phone"),
         "talktalk": ("Payment to Internet at TalkTalk", "Expenses:Other Expenses:HouseExpenses:Internet"),
         "yw internet": ("Payment for water to Yorkshire Water", "Expenses:Other Expenses:HouseExpenses:Water"),
-        "bradford metropoli|bradford met counc": ("Payment for council tax", "Expenses:Other Expenses:HouseExpenses:CouncilTax"),
+        "bradford metropoli|bradford met counc|bradford council": ("Payment for council tax", "Expenses:Other Expenses:HouseExpenses:CouncilTax"),
         "e\.on": ("Payment for energy usage to EON", "Expenses:Other Expenses:HouseExpenses:GasAndElectricity"),
         "jagtar singh": ("Payment for boiler services", "Expenses:Other Expenses:HouseExpenses"),
         "admiral insurance": ("Payment for home insurance", "Expenses:Other Expenses:HouseExpenses"),
@@ -83,7 +83,7 @@ def transform(description):
         "204514.*salary": ("Salary payment for Damian Ziobro", "Current Money:English Accounts:Barclays Accounts:XMementoIT Business Current"),
         "204514.*mileage": ("Mileage payment for Damian Ziobro", "Current Money:English Accounts:Barclays Accounts:XMementoIT Business Current"),
 
-        "uram-ziobro m m": ("From Madzia for bills payment", "Imbalance:MyWifeCurrentAccountImbalance"),
+        "uram-ziobro": ("From Madzia for bills payment", "Imbalance:MyWifeCurrentAccountImbalance"),
         "enrgy2003570711": ("Council Tax Rebate", "Imbalance:MyWifeCurrentAccountImbalance"),
 
         "transferwise": ("Tranfer to Polish current using Transferwise", "Current Money:Polish Accounts:NestBank Current Account"),
@@ -91,7 +91,7 @@ def transform(description):
 
         # flights and transport
         "ryanair": ("Payment for Ryanair tickets", "Expenses:Other Expenses:Travel and Entertainment:Flights"),
-        "uber \*trip": ("Payment for Uber trip", "Expenses:Other Expenses:Transport"),
+        "uber \*trip|uber\* trip": ("Payment for Uber trip", "Expenses:Other Expenses:Transport"),
         "northern rail": ("Payment for rail tickets", "Expenses:Other Expenses:Transport"),
         "www.tpexpress.co": ("Payment for rail tickets", "Expenses:Other Expenses:Transport"),
         "tfl travel": ("Payment for rail tickets", "Expenses:Other Expenses:Transport"),
@@ -99,6 +99,7 @@ def transform(description):
         #games
         "365games": ("Payment for FIFA game at 365games", "Expenses:Other Expenses:Travel and Entertainment:Games"),
         "playstation": ("Payment for PlayStation subscription", "Expenses:Other Expenses:Travel and Entertainment:Games"),
+        "the game collectio": ("Payment for FIFA game at The Game Collections", "Expenses:Other Expenses:Travel and Entertainment:Games"),
 
         # travel
         "yorkshire dales ic|castle|national trust|kenwood house": ("Payment for tickets on the trip", "Expenses:Other Expenses:Travel and Entertainment"),
@@ -106,9 +107,12 @@ def transform(description):
         "hotel|airbnb": ("Payment for Ryanair tickets", "Expenses:Other Expenses:Travel and Entertainment:Accomodation"),
 
         # withdraw cash
-        "powerplay|eduletting|dioce|notemachine|soccerleagues|szymon krysiak|goals football": ("withdraw in cash machine", "Expenses:Other Expenses:Miscellaneous"),
+        "powerplay|eduletting|dioce|notemachine|soccerleagues|szymon krysiak|goals football|goals bradford": ("withdraw in cash machine", "Expenses:Other Expenses:Miscellaneous"),
         "205322 11jun": ("withdraw in cash machine", "Expenses:Other Expenses:Miscellaneous"),
-        "nat west bank": ("withdraw in cash machine", "Expenses:Other Expenses:Miscellaneous"),
+        "nat west bank|sainsburys bank": ("withdraw in cash machine", "Expenses:Other Expenses:Miscellaneous"),
+
+        # betting / gambling
+        "betfred|bet365": ("betting / gambling at betfred or bet365", "Expenses:Other Expenses:Miscellaneous"),
 
         # dividend
         "204514.*dividend": ("Dividends payment for shareholder - Damian Ziobro", "Current Money:English Accounts:Barclays Accounts:XMementoIT Business Current"),
@@ -116,12 +120,12 @@ def transform(description):
         # car expenses
         "vehicle tax": ("Road tax payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Road Tax"),
         "petrol|fuel|sainsburys smkts|shell": ("payment for petrol", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Fuel"),
-        "gear up service|ziobrorecoverycar|northcliffe|servicing stop|jct car": ("Payment for car repair", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Services"),
+        "gear up service|ziobrorecoverycar|northcliffe|servicing stop|jct car|f1auto|formula one autoce": ("Payment for car repair or service", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Services"),
         "ttc driver trainin": ("Payment for TTC speeding course", "Expenses:Other Expenses:InfinitiQ50 expenses"),
-        "axa insurance": ("Axa insurance payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Insurance"),
+        "axa insurance|1stcentralinsuranc": ("Axa insurance payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Insurance"),
         "2getherinsuran": ("Breakdown Cover", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Breakdown Cover"),
-        "car parks": ("Car park payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Car Parks"),
-        "parking": ("Car park payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Car Parks"),
+        "car parks|airedale nhs": ("Car park payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Car Parks"),
+        "parking|parki|leeds park row|citipark|riverbank": ("Car park payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Car Parks"),
         "harrogate borough": ("Car park payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Car Parks"),
 
         # taxes
@@ -225,6 +229,22 @@ def transform(description):
         "calder.*hops": ("Payment for dining at Calder & Hops", "Expenses:Other Expenses:Dining"),
         "calverley arms": ("Payment for dining at Calverley Arms", "Expenses:Other Expenses:Dining"),
         "calendar club": ("Payment for dining at Calendar Club", "Expenses:Other Expenses:Dining"),
+        "agh solutions|apple vending": ("Payment for dining at Airedale Hospital", "Expenses:Other Expenses:Dining"),
+        "the rosse": ("Payment for dining at The Rosse", "Expenses:Other Expenses:Dining"),
+        "myrtle grove": ("Payment for dining at The Myrtle Grove", "Expenses:Other Expenses:Dining"),
+        "linton kitchen|cenu ltd": ("Payment for dining at Linton Kitchen", "Expenses:Other Expenses:Dining"),
+        "rontec hinckley": ("Payment for coffee at Rontec Hinckley", "Expenses:Other Expenses:Dining"),
+        "cuthbert brodrick": ("Payment for coffee at Cuthbert brodrick", "Expenses:Other Expenses:Dining"),
+        "stick or twist": ("Payment for coffee at Stick or Twist", "Expenses:Other Expenses:Dining"),
+        "the hockney": ("Payment for coffee at The Hockney", "Expenses:Other Expenses:Dining"),
+        "on 03 sep clp": ("Payment for coffee at Lord Rodney", "Expenses:Other Expenses:Dining"),
+        "camden food|skyrack|bowery|yorkshire catering|ppoint_\*wisla": ("Payment for coffee at Camden Food", "Expenses:Other Expenses:Dining"),
+        "sumup \*takeaway ge": ("Payment for coffee at Bistro Polish Food", "Expenses:Other Expenses:Dining"),
+        "livery rooms": ("Payment for coffee at Livery Rooms at Keighley", "Expenses:Other Expenses:Dining"),
+        "the hut halifax": ("Payment for coffee at The Hut Halifax", "Expenses:Other Expenses:Dining"),
+        "merrie england cof": ("Payment for coffee at Merrie England Coffee", "Expenses:Other Expenses:Dining"),
+        "barum top inn": ("Payment for coffee at Barum top inn", "Expenses:Other Expenses:Dining"),
+        "flowbird smart cit": ("Payment for coffee at Flowbird Smart", "Expenses:Other Expenses:Dining"),
 
         # transfer on my bank accounts
         "204112 43041824": ("From Current Account to Savings Account", "Current Money:English Accounts:Barclays Accounts:Barclays Savings Account"),
@@ -240,11 +260,21 @@ def transform(description):
         "telegraph subscrip": ("internet portal subscription - The Telegraph", "Expenses:Other Expenses:Entertainment"),
         "surfshark": ("internet subscription - Surfshark", "Expenses:Other Expenses:Entertainment"),
         "now.*ents|now.*boost|now 783fb|now.*on 28 dec": ("internet subscription - NOW TV", "Expenses:Other Expenses:Entertainment"),
+        "times newspapers": ("internet subscription - The Times", "Expenses:Other Expenses:Entertainment"),
+
+        # gifts and charity
+        "gofundme": ("Charity GoFundMe", "Expenses:Other Expenses:GiftsAndCharity"),
+        "nspcc": ("Charity NSPCC", "Expenses:Other Expenses:GiftsAndCharity"),
+
+        # apps
+        "google pla": ("Payment for app/movie at Google Play", "Expenses:Other Expenses:Travel and Entertainment"),
 
         # baby expenses
         "smyths": ("Toys at Smyths for Roksanka", "Expenses:Other Expenses:BabyExpenses"),
+        "tumble town": ("Toys at Smyths for soft play", "Expenses:Other Expenses:BabyExpenses"),
 
         "jacek baranowski": ("Return of loan to Jacek", "Income:Gifts Received"),
+        "bernas|moscicki|szczypczyk|matusiewicz|lubiarz": ("Return of payment to PowerPlay", "Income:Gifts Received"),
 
         "blood and medical|expresstest": ("Payment for Covid Tests", "Expenses:Other Expenses:CovidTests"),
 
@@ -260,18 +290,22 @@ def transform(description):
         "ikea": ("Payment at IKEA", "Expenses:Other Expenses:Miscellaneous"),
         "salts mill": ("Payment at Salts Mill", "Expenses:Other Expenses:Miscellaneous"),
         "hayloftplants": ("Payment at hayloftplants", "Expenses:Other Expenses:Miscellaneous"),
+        "zettle_\*bradford d": ("Payment at hayloftplants", "Expenses:Other Expenses:Miscellaneous"),
+        "sumup \*stump": ("Payment at something", "Expenses:Other Expenses:Miscellaneous"),
+        "phoenix trophies": ("Payment for Maja throphy at phoenix throphies", "Expenses:Other Expenses:Miscellaneous"),
 
         "sopra steria": ("Payment for biometrics appointment", "Expenses:Other Expenses:Citizenship"),
         "2naa031107562": ("Payment for biometrics appointment", "Expenses:Other Expenses:Citizenship"),
         "ncs vue-pte exam": ("Payment for English Exam", "Expenses:Other Expenses:Citizenship"),
         "psi services int": ("Payment for Live in the UK exam", "Expenses:Other Expenses:Citizenship"),
+        "hm passport": ("Payment for British passport", "Expenses:Other Expenses:Citizenship"),
 
         # ============= BUSINESS ACCOUNT ======================
         "hiscox": ("Hiscox - Payment for Business insurance to Hiscox", "Expenses:Bussiness Expenses:Business Insurance"),
         "zodeq": ("Payment from WellcomeSanger invoice", "Income:UK Income:WellcomeSanger"),
         "commission for": ("Bank account fees", "Expenses:Bussiness Expenses:Fees"),
         "current account.*(sto|bbp)": ("Salary payment for Damian Ziobro", "Current Money:English Accounts:Barclays Accounts:Barclays Current Account"),
-        "hmrc gov\.uk\.paye": ("HMRC - PAYE - Payment for NIC contributions", "Expenses:Other Expenses:Taxes:NIC contributions"),
+        "hmrc gov\.uk\.paye|hmrc etmp": ("HMRC - PAYE - Payment for NIC contributions", "Expenses:Other Expenses:Taxes:NIC contributions"),
         "hmrc (gov\.uk\ )?cotax": ("Corportation Tax Payment for XMementoIT for 2019/2020", "Expenses:Other Expenses:Taxes:Corporation Tax"),
         "hmrc (gov\.uk\ )?vat": ("VAT payment + surcharge", "Expenses:Other Expenses:Taxes:VAT Payment"),
         "companies house": ("Confirmation statement in Companies House", "Expenses:Bussiness Expenses:Fees"),
@@ -280,7 +314,9 @@ def transform(description):
         "ppwdl4ux222242jz3c": ("Transfer from XMementoIT's PayPal", "Current Money:English Accounts:Paypal accounts:Paypal XMementoIT GBP"),
         "companieshouse web": ("Confirmation statement payment to Companies House", "Expenses:Bussiness Expenses:Fees"),
         "hmrc shipley": ("Corportation Tax Payment for XMementoIT for 2020/2021", "Expenses:Other Expenses:Taxes:Corporation Tax"),
-        "dick hudsons": ("Company Annual Event - Christmas Party", "Expenses:Bussiness Expenses:CompanyAnnualEvents"),
+        "dick hudsons|salute at the whit": ("Company Annual Event - Christmas Party", "Expenses:Bussiness Expenses:CompanyAnnualEvents"),
+        "packt birmingham|udemy": ("professional courses and ebooks subscription", "Expenses:Bussiness Expenses:Trainings and courses"),
+        "woodfield farm|travelodge": ("accomodation during business trip", "Expenses:Bussiness Expenses:Bussiness travels"),
 
         # salary and dividends
         "uram-ziobro.*dividend": ("Dividends payment for shareholder - Magdalena Uram-Ziobro", "Imbalance:MyWifeCurrentAccountImbalance:MadziaDividends"),

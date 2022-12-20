@@ -3,14 +3,14 @@
 from faker import Faker
 import csv
 
-CSV_HEADER=['name','age','street','city','state','zip','lng','lat']
+CSV_HEADER=['name','age','street','city','county','postcode','lng','lat']
 NUMER_OF_FAKE_PEOPLE = 10000
 
 with open('data.csv','w') as data_file:
     mywriter=csv.writer(data_file)
     mywriter.writerow(CSV_HEADER)
 
-    fake=Faker()
+    fake=Faker(["en_GB"])
     for r in range(NUMER_OF_FAKE_PEOPLE):
         mywriter.writerow(
             [
@@ -18,8 +18,8 @@ with open('data.csv','w') as data_file:
                 fake.random_int(min=18, max=80, step=1), 
                 fake.street_address(), 
                 fake.city(),
-                fake.state(),
-                fake.zipcode(),
+                fake.county(),
+                fake.postcode(),
                 fake.longitude(),
                 fake.latitude()
             ]

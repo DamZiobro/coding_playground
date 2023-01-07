@@ -11,7 +11,7 @@ Connecting of microservices
 ![Connecting of microservices](docs/connecting_services.png)
 
 
-Deploy kubernetes locally
+Run kubernetes deployment locally
 =======
 
 1. Make sure you have kubectl and minicube installed on your computer.
@@ -21,14 +21,21 @@ make run-k8s-cluster
 ```
 3. Build and run microservices:
 ```
-make deploy
+make local-deploy
 ```
 
 4. Check status of running microservices
 ```
-make deploy-status
+make local-deploy-status
 ```
-5. If deployed successfully open the service in the web browser:
+5. Fetch URLs of the services in the minikube cluster:
 ```
-firefox http://localhost:8000
+minikube service -n thoughts users-service --url
+minikube service -n thoughts thoughts-service --url
+minikube service -n thoughts frontend-service --url
+```
+
+5. Open the fetched URLs the in the web browser:
+```
+firefox http://192.168.49.2:30604
 ```

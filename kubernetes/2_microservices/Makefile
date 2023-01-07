@@ -7,21 +7,25 @@ run-k8s-cluster:
 	eval $(minikube docker-env)
 
 build:
+	# build docker images for microservices
 	make -C thoughts_backend build
 	make -C users_backend build
 	make -C frontend build
 
-deploy: build
-	make -C thoughts_backend deploy
-	make -C users_backend deploy
-	make -C frontend deploy
+local-deploy: build
+	# deploy microservices using kubernetes
+	make -C thoughts_backend local-deploy
+	make -C users_backend local-deploy
+	make -C frontend local-deploy
 
-delete-deploy:
-	make -C thoughts_backend delete-deploy
-	make -C users_backend delete-deploy
-	make -C frontend delete-deploy
+delete-local-deploy:
+	# deploy microservices kubernetes-based deployment
+	make -C thoughts_backend delete-local-deploy
+	make -C users_backend delete-local-deploy
+	make -C frontend delete-local-deploy
 
-deploy-status:
+local-deploy-status:
+	# deploy kubernetes deployment status
 	@echo "============== K8S DEPLOYMENTS ==================="
 	kubectl get deployments -n $(NAMESPACE)
 	@echo "============== K8S PODS ==================="

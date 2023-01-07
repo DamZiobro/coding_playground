@@ -11,11 +11,11 @@ Connecting of microservices
 ![Connecting of microservices](docs/connecting_services.png)
 
 
-Run kubernetes deployment locally
+Run Microservices Kubernetes deployment locally
 =======
 
 1. Make sure you have kubectl and minicube installed on your computer.
-2. Run minikube kubernetes cluster
+2. Run minikube kubernetes cluster locally
 ```
 make run-k8s-cluster
 ```

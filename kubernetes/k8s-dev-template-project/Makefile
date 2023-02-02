@@ -38,8 +38,12 @@ push: build ## pushes project-related docker images into local docker registry
 deploy: kind-deps ## deploys project using k8s
 	@echo "Applying k8s deployment..."
 	kubectl apply -f deployment.yaml
-	@echo "Applying k8s deployment..."
-	kubectl get pods
+	@echo "Applying k8s service..."
+	kubectl apply -f service.yaml
+	
+deploy-status: kind-deps ## show status of k8s deployment
+	@echo "============== K8S DEPLOYMENTS ==================="
+	kubectl get all -l app=$(PROJECT)
 
 #=========================================================
 # LOCAL DEV kubernetes ENV SETUP commands

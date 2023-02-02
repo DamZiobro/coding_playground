@@ -47,6 +47,7 @@ XMementoIT Kubernetes Development Environment - template project for kubernetes-
 
 * **make push** - pushes project-related docker images into local docker registry
 * **make deploy** - deploys project using k8s
+* **make deploy-status** - show status of k8s deployment (pods, services, deployments)
 
 
 ## Cleaning docker and k8s resources

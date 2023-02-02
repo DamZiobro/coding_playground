@@ -1,0 +1,3 @@
+install_kind
+create-kind-cluster
+install_kubectl

@@ -40,24 +40,26 @@ XMementoIT Kubernetes Development Environment - template project for kubernetes-
 
 ### Kubernetes-based local development SETUP commands
 
-
 * **make create-kind-cluster** - creates kind-based k8s claster for local development
 * **make run-local-docker-registry** - runs docker container containing local docker registry (if it is not running already)
+* **make run-ingress-controller** - install ingress nginx controller
 * **make run-full-k8s-env** - generates ALL local resources related to k8s deployment:
   * kind-based k8s cluster
   * local docker registry
+  * [Ingress nginx](https://kind.sigs.k8s.io/docs/user/ingress/#ingress-nginx) - ingress controllers
 
 ### Kubernetes-based local development DEV commands
 
 * **make push** - pushes project-related docker images into local docker registry
 * **make deploy** - deploys project using k8s
-* **make deploy-status** - show status of k8s deployment (pods, services, deployments)
+* **make status-deploy** - show status of k8s deployment (pods, services, deployments)
 
 
 ## Cleaning docker and k8s resources
 
 * **make clean** - removes project-related docker containers and docker images (does not remove any k8s-based deployed resources)
+* **make delete** - deletes project using k8s
 * **make dist-clean** - removes ALL project-related resources:
-  * kind-based k8s cluster
-  * local docker registry
+  * kind-based [k8s cluster](https://www.vmware.com/topics/glossary/content/kubernetes-cluster.html)
+  * local [docker registry](https://docs.docker.com/registry/)
   * all project-related docker containers and docker-images

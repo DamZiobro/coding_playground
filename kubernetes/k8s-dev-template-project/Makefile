@@ -35,13 +35,17 @@ push: build ## pushes project-related docker images into local docker registry
 	docker tag $(PROJECT) $(DOCKER_REG_URL)/$(PROJECT)
 	docker push $(DOCKER_REG_URL)/$(PROJECT)
 
-deploy: kind-deps ## deploys project using k8s
-	@echo "Applying k8s deployment..."
+deploy: push kind-deps ## deploys project using k8s
 	kubectl apply -f deployment.yaml
-	@echo "Applying k8s service..."
 	kubectl apply -f service.yaml
+	kubectl apply -f ingress.yaml
+
+delete: kind-deps ## deletes project using k8s
+	kubectl delete -f deployment.yaml
+	kubectl delete -f service.yaml
+	kubectl delete -f ingress.yaml
 	
-deploy-status: kind-deps ## show status of k8s deployment
+status-deploy: kind-deps ## show status of k8s deployment
 	@echo "============== K8S DEPLOYMENTS ==================="
 	kubectl get all -l app=$(PROJECT)
 
@@ -82,9 +86,20 @@ delete-local-docker-registry: ## delete locally running docker registry
 	docker rm -f $(DOCKER_REG_CONTAINER)
 
 #---------------------------------
+# nginx-based ingress controller commands
+#---------------------------------
+run-ingress-controller: kind-deps ## install ingress nginx controller
+	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+delete-ingress-controller: kind-deps ## delete ingress nginx controller resources
+	kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+status-ingress-controller: kind-deps ## get status of ingress-controller 
+	kubectl get all -n ingress-nginx
+#---------------------------------
 #  compounded dev commands
 #---------------------------------
 
 run-full-k8s-env: create-kind-cluster run-local-docker-registry connect-registry-to-kind-network connect-registry-to-kind ## generates ALL local resources related to k8s deployment
 
-dist-clean: delete-local-docker-registry delete-kind-cluster clean ## delete all project-related docker images, docker containers (including local kind k8s cluster and local docker registry)
+dist-clean: delete-local-docker-registry delete delete-kind-cluster delete-ingress-controller clean ## delete all project-related docker images, docker containers (including local kind k8s cluster and local docker registry)

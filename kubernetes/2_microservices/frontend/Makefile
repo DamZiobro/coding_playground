@@ -1,8 +1,9 @@
 NAMESPACE=thoughts
 
-create-namespace:
+create-namespace: ## create namespace if does not exist
 	kubectl create namespace $(NAMESPACE) --dry-run -o yaml > /tmp/namespace.yaml
 	kubectl apply -f /tmp/namespace.yaml
+	touch $@
 
 build:
 	docker-compose build
@@ -19,4 +20,3 @@ delete-local-deploy:
 	kubectl delete -f kubernetes/deployment.yaml
 	kubectl delete -f kubernetes/service.yaml
 	kubectl delete -f kubernetes/ingress.yaml
-

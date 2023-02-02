@@ -278,6 +278,16 @@ resource "aws_internet_gateway" "kops-cluster-xmementoit-co-uk" {
   vpc_id = aws_vpc.kops-cluster-xmementoit-co-uk.id
 }
 
+resource "aws_key_pair" "kubernetes-kops-cluster-xmementoit-co-uk-5f4945a82ea8971998f21880515658c5" {
+  key_name   = "kubernetes.kops-cluster.xmementoit.co.uk-5f:49:45:a8:2e:a8:97:19:98:f2:18:80:51:56:58:c5"
+  public_key = file("${path.module}/data/aws_key_pair_kubernetes.kops-cluster.xmementoit.co.uk-5f4945a82ea8971998f21880515658c5_public_key")
+  tags = {
+    "KubernetesCluster"                                   = "kops-cluster.xmementoit.co.uk"
+    "Name"                                                = "kops-cluster.xmementoit.co.uk"
+    "kubernetes.io/cluster/kops-cluster.xmementoit.co.uk" = "owned"
+  }
+}
+
 resource "aws_launch_template" "master-eu-west-1a-masters-kops-cluster-xmementoit-co-uk" {
   block_device_mappings {
     device_name = "/dev/sda1"
@@ -295,6 +305,7 @@ resource "aws_launch_template" "master-eu-west-1a-masters-kops-cluster-xmementoi
   }
   image_id      = "ami-0b95c8042c84717b9"
   instance_type = "t2.micro"
+  key_name      = aws_key_pair.kubernetes-kops-cluster-xmementoit-co-uk-5f4945a82ea8971998f21880515658c5.id
   lifecycle {
     create_before_destroy = true
   }
@@ -370,6 +381,7 @@ resource "aws_launch_template" "nodes-eu-west-1a-kops-cluster-xmementoit-co-uk" 
   }
   image_id      = "ami-0b95c8042c84717b9"
   instance_type = "t2.micro"
+  key_name      = aws_key_pair.kubernetes-kops-cluster-xmementoit-co-uk-5f4945a82ea8971998f21880515658c5.id
   lifecycle {
     create_before_destroy = true
   }

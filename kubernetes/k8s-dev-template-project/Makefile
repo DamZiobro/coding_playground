@@ -1,6 +1,8 @@
 
 PROJECT=xmementoit-k8s-development.com
+
 APP_LOCAL_PORT=3000
+DOCKER_REG=local-docker-registry
 
 #=========================================================
 # LCOAL DEV docker commands
@@ -47,12 +49,22 @@ delete-kind-cluster: kind-deps ## deletes local kind-based k8s cluster
 # local-docker-registry-based commands
 #---------------------------------
 run-local-docker-registry: deps ## runs docker container containing local docker registry (if it is not running already)
-	docker start local-docker-registry 2> /dev/null || docker run --name local-docker-registry -d --restart=always -p 5000:5000 registry:2
+	docker start local-docker-registry 2> /dev/null || docker run --name $(DOCKER_REG) -d --restart=always -p 5000:5000 registry:2
 	touch $@
 
-delete-local-docker-registry: ## removes locally running docker registry
-	docker rm -f local-docker-registry
+connect-registry-to-kind-network: deps ## connects local-docker-registry to 'kind' docker network
+	@docker network connect kind $(DOCKER_REG) 2> /dev/null || true
 
-run-local-k8s-env: create-kind-cluster run-local-docker-registry
+connect-registry-to-kind: deps connect-registry-to-kind-network ## connects local-docker-registry to kind-based cluster
+	kubectl apply -f ./kind_configmap.yaml
+
+delete-local-docker-registry: ## removes locally running docker registry
+	docker rm -f $(DOCKER_REG)
+
+#---------------------------------
+#  compounded dev commands
+#---------------------------------
+
+run-full-k8s-env: create-kind-cluster run-local-docker-registry connect-registry-to-kind-network connect-registry-to-kind ## generates ALL local resources related to k8s deployment
 
 dist-clean: delete-local-docker-registry delete-kind-cluster clean ## remove all project-related docker images, docker containers (including local kind k8s cluster and local docker registry)

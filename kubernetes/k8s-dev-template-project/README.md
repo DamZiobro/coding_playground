@@ -24,7 +24,7 @@ Kubernetes-based local development, deployment and tests
 
 * **make create-kind-cluster** - creates kind-based k8s claster for local development
 * **make run-local-docker-registry** - runs docker container containing local docker registry (if it is not running already)
-* **make run-local-k8s-env** - generates all local resources related to k8s deployment:
+* **make run-full-k8s-env** - generates ALL local resources related to k8s deployment:
   * kind-based k8s cluster
   * local docker registry
 

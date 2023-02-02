@@ -45,7 +45,7 @@ delete-kind-cluster: kind-deps ## deletes local kind-based k8s cluster
 # local-docker-registry-based commands
 #---------------------------------
 run-local-docker-registry: deps ## runs docker container containing local docker registry (if it is not running already)
-	docker start local-docker-registry || docker run --name local-docker-registry -d --restart=always -p 5000:5000 registry:2
+	docker start local-docker-registry 2> /dev/null || docker run --name local-docker-registry -d --restart=always -p 5000:5000 registry:2
 	touch $@
 
 delete-local-docker-registry: ## removes locally running docker registry

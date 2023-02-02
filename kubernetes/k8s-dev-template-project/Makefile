@@ -1,5 +1,6 @@
 
 PROJECT=xmementoit-k8s-development.com
+APP_LOCAL_PORT=3000
 
 #=========================================================
 # LCOAL DEV docker commands
@@ -12,7 +13,8 @@ build: deps ## build project-related docker image
 	docker build -t $(PROJECT) .
 
 run: deps ## runs project-related docker container (build must be performed first)
-	docker run -d --name $(PROJECT) -p 5000:80 $(PROJECT)
+	docker run -d --name $(PROJECT) -p $(APP_LOCAL_PORT):80 $(PROJECT)
+	echo "website is up-and-running on http://localhost:$(APP_LOCAL_PORT)"
 
 stop: ## stops project-related docker containers (without deleting them)
 	docker stop -d --name $(PROJECT)

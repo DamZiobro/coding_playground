@@ -13,7 +13,8 @@ Docker-based local development and tests
 ------
 
 * **make build** - build project-related docker image
-* **make run** - runs project-related docker container (build must be performed first)
+* **make run** - runs project-related docker container (`make build` must be performed first)
+  * make sure the website is up and running at `http://localhost:3000`
 * **make build run** - runs above 2 commands 'make build' and 'make run' in order
 * **make stop** - stops project-related docker containers (without deleting them)
 * **make clean** -  removes project-related docker containers and docker images

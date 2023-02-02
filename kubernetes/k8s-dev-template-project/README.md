@@ -1,6 +1,10 @@
 XMementoIT Kubernetes Development Environment - template project for kubernetes-based DevOps-based development 
 ==============
 
+## High Level Design of this project
+
+![High Level Design](docs/pictures/high_level_design.png)
+
 ## Developers - Getting started
 
 

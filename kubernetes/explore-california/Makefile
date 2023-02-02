@@ -1,5 +1,5 @@
 
-PROJECT=explorecalifornia.com
+PROJECT=xmementoit-k8s-development.com
 
 #=========================================================
 # LCOAL DEV docker commands

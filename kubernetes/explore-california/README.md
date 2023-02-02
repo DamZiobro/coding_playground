@@ -1,4 +1,4 @@
-Explore California - template project for kubernetes-based development 
+XMementoIT Kubernetes Development Environment - template project for kubernetes-based DevOps-based development 
 ==============
 
 Developers - Getting started

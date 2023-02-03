@@ -12,6 +12,7 @@ XMementoIT Kubernetes Development Environment - template project for kubernetes-
 1. [Install docker](https://docs.docker.com/engine/install/)
 2. [Install kind](https://kind.sigs.k8s.io/) to generate local [Kubernetes](https://kubernetes.io/) clusters
 3. [Install kubectl](https://kubernetes.io/docs/tasks/tools/) to control local kubernetes resources
+3. [Install helm](https://helm.sh/docs/intro/install/) to manage k8s packages ([helm charts](https://helm.sh/docs/topics/charts/))
 
 ### Run project-related docker container
 

@@ -1,18 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: null
   labels:
-    app: xmementoit-k8s-development.com
-  name: xmementoit-k8s-development-service
+    app: {{ .Values.appName }}
+  name: {{ .Values.serviceName }} 
 spec:
   ports:
   - name: 80-80
-    port: 80
+    port: {{ .Values.sourcePort }}
     protocol: TCP
     targetPort: 80
   selector:
-    app: xmementoit-k8s-development.com
+    app: {{ .Values.appName }}
   type: ClusterIP
 status:
   loadBalancer: {}

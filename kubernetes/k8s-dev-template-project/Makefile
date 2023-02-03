@@ -40,7 +40,7 @@ push: build ## pushes project-related docker images into local docker registry
 deploy: push kind-deps ## deploys project using k8s
 	helm upgrade --atomic --install $(APP_NAME) ./helm
 
-delete: kind-deps ## deletes project using k8s
+undeploy: kind-deps ## deletes project using k8s
 	helm uninstall $(APP_NAME) || true
 	
 status-deploy: kind-deps ## show status of k8s deployment
@@ -104,4 +104,4 @@ status-ingress-controller: kind-deps ## get status of ingress-controller
 
 run-full-k8s-env: create-kind-cluster run-local-docker-registry connect-registry-to-kind-network connect-registry-to-kind run-ingress-controller ## generates ALL local resources related to k8s deployment
 
-dist-clean: delete-local-docker-registry delete delete-kind-cluster delete-ingress-controller clean ## delete all project-related docker images, docker containers (including local kind k8s cluster and local docker registry)
+dist-clean: undeploy delete-local-docker-registry delete-ingress-controller delete-kind-cluster clean ## delete all project-related docker images, docker containers (including local kind k8s cluster and local docker registry)

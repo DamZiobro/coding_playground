@@ -31,3 +31,6 @@
 [submodule "python/generic-decorators"]
 	path = python/generic-decorators
 	url = git@github.com:DamZiobro/generic-decorators.git
+[submodule "kubernetes/k8s-template-project"]
+	path = kubernetes/k8s-template-project
+	url = git@github.com:DamZiobro/k8s-template-project

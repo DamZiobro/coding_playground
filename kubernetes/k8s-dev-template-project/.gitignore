@@ -1,4 +1,0 @@
-install_kind
-create-kind-cluster
-install_kubectl
-run-local-docker-registry

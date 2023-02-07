@@ -1,6 +1,0 @@
-appName: xmementoit-k8s-development-website
-websiteHost: xmementoit-k8s-development.com
-imageName: localhost:5000/xmementoit-k8s-development.com
-replicas: 1
-serviceName: xmementoit-k8s-development-service
-sourcePort: 80

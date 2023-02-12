@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+		<title>hello</title>
+	</head>
+	<body>
+        <h1>Todo List Tasks:</h1>
+        <p>
+        {% for task in object_list %}
+        <p>{{ task.title }} - created at: {{ task.created_at }}</p>
+        {% endfor %}
+        </p>
+	</body>
+</html>
+

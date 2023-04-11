@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello-world-api
+  name: hello-world-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world-api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hello-world-api
+    spec:
+      containers:
+      - image: localhost:5000/hello-world-api:1.0
+        name: hello-world-api
+        resources: {}
+status: {}

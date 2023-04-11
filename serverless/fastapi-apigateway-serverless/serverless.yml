@@ -1,0 +1,30 @@
+service: fastapi-apigateway-serverless
+
+plugins:
+  - serverless-python-requirements
+  - serverless-prune-plugin
+
+custom:
+  pythonRequirements:
+    pythonBin: python3
+    layer: true
+  prune:
+    automatic: true
+    includeLayers: true
+    number: 3
+       - "*"
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: dev
+  region: eu-west-1
+functions:
+  app:
+    handler: api.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+    layers:
+      - Ref: PythonRequirementsLambdaLayer

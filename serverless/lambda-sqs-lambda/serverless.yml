@@ -1,0 +1,12 @@
+service: hello-world
+
+provider:
+  name: aws
+  runtime: python3.7
+
+functions:
+  hello:
+    handler: handler.hello
+
+  hello2:
+    handler: handler.hello2

@@ -1,0 +1,26 @@
+---
+- name: apt update
+  apt:
+    cache_valid_time: 86400
+    update_cache: true
+
+- name: Install Java
+  apt:
+    name: "{{ java_jdk_package }}"
+    state: present
+
+- name: Add Jenkins repository key
+  apt_key:
+    url: "{{ jenkins_repo_key_url }}"
+    state: present
+
+- name: Add Jenkins repository to sources list
+  apt_repository:
+    repo: "{{ jenkins_repo_url }}"
+    state: present
+    update_cache: yes
+
+- name: Install Jenkins
+  apt:
+    name: jenkins
+    state: present

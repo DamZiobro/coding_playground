@@ -56,7 +56,7 @@ def nestbank_csv_to_gnucash_csv(input_file_csv):
         for row in csv_reader:
 
             if not row.get("Data operacji"):
-                print(f"WARNING: skipping row as no data included: {row}")
+                print(f"WARNING: skipping row as no date field included: {row}")
                 continue
 
             print(f"row: {row}")
@@ -92,7 +92,7 @@ def pkobp_csv_to_gnucash_csv(input_file_csv):
         for row in csv_reader:
 
             if not row.get("Data operacji"):
-                print(f"WARNING: skipping row as no data included: {row}")
+                print(f"WARNING: skipping row as no date field included: {row}")
                 continue
 
             print(f"row: {row}")
@@ -148,15 +148,17 @@ def transform(description):
         "aldi": ("payment for shopping at Aldi", "Expenses:Other Expenses:Grocery shopping"),
         "lidl gb": ("payment for shopping at Lidl", "Expenses:Other Expenses:Grocery shopping"),
         "tesco": ("payment for shopping at Tesco", "Expenses:Other Expenses:Grocery shopping"),
-        "euro food plus|skarpie|ela european|on 13 dec clp|dobre bo polskie": ("payment at polish shop", "Expenses:Other Expenses:Miscellaneous:PolskiSklep"),
+        "euro food plus|skarpie|ela european|on 13 dec clp|dobre bo polskie|maja polish shop": ("payment at polish shop", "Expenses:Other Expenses:Miscellaneous:PolskiSklep"),
         "windhill stores": ("payment for shopping at Windhill Stores", "Expenses:Other Expenses:Grocery shopping"),
         "b&m.*shipley": ("payment for shopping at B&M Shipley", "Expenses:Other Expenses:Grocery shopping"),
         "morrisons": ("payment for shopping at Morrisons", "Expenses:Other Expenses:Grocery shopping"),
         "waitrose": ("payment for shopping at Morrisons", "Expenses:Other Expenses:Grocery shopping"),
+        "shipley convenienc": ("payment for shopping at Shipley CostCutter", "Expenses:Other Expenses:Grocery shopping"),
 
         # bills
         "id mobile": ("phone payment", "Expenses:Bussiness Expenses:Phone"),
         "talktalk": ("Payment to Internet at TalkTalk", "Expenses:Other Expenses:HouseExpenses:Internet"),
+        "virgin media": ("Payment to Internet at VirginMedia", "Expenses:Other Expenses:HouseExpenses:Internet"),
         "yw internet|yorkshire water": ("Payment for water to Yorkshire Water", "Expenses:Other Expenses:HouseExpenses:Water"),
         "bradford metropoli|bradford met counc|bradford council": ("Payment for council tax", "Expenses:Other Expenses:HouseExpenses:CouncilTax"),
         "e\.on": ("Payment for energy usage to EON", "Expenses:Other Expenses:HouseExpenses:GasAndElectricity"),
@@ -178,6 +180,7 @@ def transform(description):
         "northern rail": ("Payment for rail tickets", "Expenses:Other Expenses:Transport"),
         "www.tpexpress.co": ("Payment for rail tickets", "Expenses:Other Expenses:Transport"),
         "tfl travel": ("Payment for rail tickets", "Expenses:Other Expenses:Transport"),
+        "shipley stn": ("Payment for rail tickets", "Expenses:Other Expenses:Transport"),
 
         #games
         "365games": ("Payment for FIFA game at 365games", "Expenses:Other Expenses:Travel and Entertainment:Games"),
@@ -206,13 +209,13 @@ def transform(description):
         # car expenses
         "vehicle tax": ("Road tax payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Road Tax"),
         "petrol|fuel|sainsburys smkts|shell": ("payment for petrol", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Fuel"),
-        "gear up service|ziobrorecoverycar|northcliffe|servicing stop|jct car|f1auto|formula one autoce": ("Payment for car repair or service", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Services"),
+        "gear up service|ziobrorecoverycar|northcliffe|servicing stop|jct car|f1auto|formula one autoce|halfords": ("Payment for car repair or service", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Services"),
         "ttc driver trainin": ("Payment for TTC speeding course", "Expenses:Other Expenses:InfinitiQ50 expenses"),
         "axa insurance|1stcentralinsuranc|darwin insurance": ("Car insurance payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Insurance"),
         "2getherinsuran": ("Breakdown Cover", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Breakdown Cover"),
         "car parks|airedale nhs|city of york": ("Car park payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Car Parks"),
         "parking|parki|leeds park row|citipark|riverbank": ("Car park payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Car Parks"),
-        "harrogate borough": ("Car park payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Car Parks"),
+        "harrogate borough|q park leeds": ("Car park payment", "Expenses:Other Expenses:InfinitiQ50 expenses:Infiniti Q50 - Car Parks"),
 
         # taxes
         "hmrc gov.uk|hmrc self assessme": ("HMRC - Self-assessment Tax on accounts for year 2021/2022", "Expenses:Other Expenses:Taxes:Self-Assessment Tax"),
@@ -351,6 +354,14 @@ def transform(description):
         "devonshire inn": ("Payment for dining at Devonshire Inn", "Expenses:Other Expenses:Dining"),
         "the quays": ("Payment for coffee at The Quays", "Expenses:Other Expenses:Dining"),
         "the old unicorn": ("Payment for dining at The Old Unicorn", "Expenses:Other Expenses:Dining"),
+        "the racehorses hot": ("Payment for dining at The Racehorses hot", "Expenses:Other Expenses:Dining"),
+        "multi cook": ("Payment for dining at the Multi Cook", "Expenses:Other Expenses:Dining"),
+        "denbrook service": ("Payment for dining at the Danebrook service", "Expenses:Other Expenses:Dining"),
+        "bold privateer": ("Payment for dining at the Bold Privateer pub", "Expenses:Other Expenses:Dining"),
+        "uber \*one": ("Payment for delivery at Uber One", "Expenses:Other Expenses:Dining"),
+        "q park the light": ("Payment for delivery at Q Park The Light", "Expenses:Other Expenses:Dining"),
+        "wakefield football": ("Payment for delivery at Wakefield Football Center", "Expenses:Other Expenses:Dining"),
+        "six poor folk": ("Payment for delivery at Six Poor Folk", "Expenses:Other Expenses:Dining"),
 
         # transfer on my bank accounts
         "204112 43041824": ("From Current Account to Savings Account", "Current Money:English Accounts:Barclays Accounts:Barclays Savings Account"),
@@ -367,6 +378,7 @@ def transform(description):
 
         # internet subscriptions
         "netflix": ("Netflix payment", "Expenses:Other Expenses:TVandInternet"),
+        "disney plus": ("Disney+ payment", "Expenses:Other Expenses:TVandInternet"),
         "amazon prime|prime video": ("Amazon Prime payment", "Expenses:Other Expenses:TVandInternet"),
         "amazon music": ("Amazon Music payment", "Expenses:Other Expenses:Entertainment"),
         "the athletic": ("internet portal subscription - The Athletic", "Expenses:Other Expenses:Entertainment"),
@@ -374,10 +386,12 @@ def transform(description):
         "surfshark": ("internet subscription - Surfshark", "Expenses:Other Expenses:Entertainment"),
         "now.*ents|now.*boost|now 783fb|now.*on 28 dec": ("internet subscription - NOW TV", "Expenses:Other Expenses:Entertainment"),
         "times newspapers": ("internet subscription - The Times", "Expenses:Other Expenses:Entertainment"),
+        "leeds playhouse": ("Payment for delivery at Leeds Playhouse", "Expenses:Other Expenses:Entertainment"),
 
         # gifts and charity
         "gofundme": ("Charity GoFundMe", "Expenses:Other Expenses:GiftsAndCharity"),
         "nspcc": ("Charity NSPCC", "Expenses:Other Expenses:GiftsAndCharity"),
+        "darowizna|zrzutka.pl": ("Darowizna na cele charytatywne", "Expenses:Other Expenses:GiftsAndCharity"),
 
         # apps
         "google pla": ("Payment for app/movie at Google Play", "Expenses:Other Expenses:Travel and Entertainment"),
@@ -409,6 +423,7 @@ def transform(description):
         "zettle_\*bradford d": ("Payment at hayloftplants", "Expenses:Other Expenses:Miscellaneous"),
         "sumup \*stump": ("Payment at something", "Expenses:Other Expenses:Miscellaneous"),
         "phoenix trophies": ("Payment for Maja throphy at phoenix throphies", "Expenses:Other Expenses:Miscellaneous"),
+        "wyp.org.uk": ("unknown payment", "Expenses:Other Expenses:Miscellaneous"),
 
         "sopra steria": ("Payment for biometrics appointment", "Expenses:Other Expenses:Citizenship"),
         "2naa031107562": ("Payment for biometrics appointment", "Expenses:Other Expenses:Citizenship"),
@@ -417,7 +432,7 @@ def transform(description):
         "hm passport": ("Payment for British passport", "Expenses:Other Expenses:Citizenship"),
 
         # Sundries
-        "gift round lim|bowling green|savills|crossed shuttle|marks&spencer|midpoint|teachhospi|crowd of favours|tarquins|westcliffe pharma|de verde|quaytickets|lukasz czajka|mfs and c|sanandaj|royd ices|sainsburys.*mkts|saltaire mini mark|north yorkshire co|owlerton stadium|loaded gourmet|zettle|eagle events|m tomas|fine confection|vms salts|spar |manchester airport|moto birch east": ("Payment for miscellaneous", "Expenses:Other Expenses:Miscellaneous"),
+        "rushpay.pl|gift round lim|bowling green|savills|crossed shuttle|marks&spencer|midpoint|teachhospi|crowd of favours|tarquins|westcliffe pharma|de verde|quaytickets|lukasz czajka|mfs and c|sanandaj|royd ices|sainsburys.*mkts|saltaire mini mark|north yorkshire co|owlerton stadium|loaded gourmet|zettle|eagle events|m tomas|fine confection|vms salts|spar |manchester airport|moto birch east": ("Payment for miscellaneous", "Expenses:Other Expenses:Miscellaneous"),
 
         # ============= BUSINESS ACCOUNT ======================
         "hiscox": ("Hiscox - Payment for Business insurance to Hiscox", "Expenses:Bussiness Expenses:Business Insurance"),
@@ -438,7 +453,7 @@ def transform(description):
         "hmrc shipley.*475pz": ("HMRC - PAYE - Payment for NIC contributions", "Expenses:Other Expenses:Taxes:NIC contributions"),
         "dick hudsons|salute at the whit|halfway house": ("Company Annual Event - Christmas Party", "Expenses:Bussiness Expenses:CompanyAnnualEvents"),
         "packt birmingham|udemy": ("professional courses and ebooks subscription", "Expenses:Bussiness Expenses:Trainings and courses"),
-        "chatgpt subscripti": ("ChatGPT subscription", "Expenses:Bussiness Expenses:Trainings and courses"),
+        "chatgpt subscripti|openai.*usa": ("ChatGPT subscription", "Expenses:Bussiness Expenses:Trainings and courses"),
         "a medium corporati": ("Medium subscription", "Expenses:Bussiness Expenses:Trainings and courses"),
         "woodfield farm|travelodge": ("accomodation during business trip", "Expenses:Bussiness Expenses:Bussiness travels"),
         "the red mug|stgcoach/ctylink|az\ rdc\ catering|eb\ \*az\ cambridge|burger king brampt|wendy's brampton|trainline|the piccadilly|the pen and pencil": ("expenses during business trip", "Expenses:Bussiness Expenses:Bussiness travels"),
@@ -499,7 +514,10 @@ def transform(description):
         "74627157067": ("Płatność za cegiełkę na ścianę", "Current Money:Assets:HouseKleczanyPL:Wykonczenia"),
         "damian ziobro\ -\ klęczany": ("Płatność dla elektryka za dodatkowe prace", "Current Money:Assets:HouseKleczanyPL:Wykonczenia"),
         "jaslo.*astro": ("Kleje, farby itp.", "Current Money:Assets:HouseKleczanyPL:Wykonczenia"),
+        "faktura nr 3192/js/2023": ("akcesoria do wykończenia łazienki i paneli", "Current Money:Assets:HouseKleczanyPL:Wykonczenia"),
+        "ceg.y dekoracyjnej": ("Układanie cegiełki dekoracyjnnej", "Current Money:Assets:HouseKleczanyPL:Wykonczenia"),
         "54320837": ("Płatność za gaz", "Current Money:Assets:HouseKleczanyPL:Oplaty:Rachunki"),
+        "abonamentowa za wodę": ("Płatność za wodę", "Current Money:Assets:HouseKleczanyPL:Oplaty:Rachunki"),
         "74340460729": ("Płatność za ubezpieczenie domu", "Current Money:Assets:HouseKleczanyPL:Oplaty:Rachunki"),
         "gkpge.pl": ("Płatność za prąd", "Current Money:Assets:HouseKleczanyPL:Oplaty:Rachunki"),
         "podatek od nieruch(o)?mości": ("Podatek od nieruchomości w Klęczanach", "Current Money:Assets:HouseKleczanyPL:Oplaty:Rachunki"),

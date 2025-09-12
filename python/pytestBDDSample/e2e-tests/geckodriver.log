@@ -1,0 +1,201 @@
+1599472773314	geckodriver	INFO	Listening on 127.0.0.1:45591
+1599472773329	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileizEeKv"
+1599472789815	Marionette	INFO	Listening on port 45029
+1599472789886	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+1599472795370	Marionette	INFO	Stopped listening on port 45029
+1599472820143	geckodriver	INFO	Listening on 127.0.0.1:48129
+1599472820151	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileSiOk0N"
+1599472824145	Marionette	INFO	Listening on port 35019
+1599472824168	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+1599472825592	Marionette	INFO	Stopped listening on port 35019
+1599473315961	geckodriver	INFO	Listening on 127.0.0.1:60329
+1599473315969	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilewMZLLh"
+1599473320606	Marionette	INFO	Listening on port 36859
+1599473320685	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+1599473322024	Marionette	INFO	Stopped listening on port 36859
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1599473323864	geckodriver	INFO	Listening on 127.0.0.1:33657
+1599473323869	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilexchW6z"
+1599473327868	Marionette	INFO	Listening on port 39733
+1599473327890	Marionette	WARN	TLS certificate errors will be ignored for this session
+1599473327948	Marionette	INFO	Stopped listening on port 39733
+1599473329382	geckodriver	INFO	Listening on 127.0.0.1:48315
+1599473329387	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBBIHA2"
+1599473333414	Marionette	INFO	Listening on port 35037
+1599473333499	Marionette	WARN	TLS certificate errors will be ignored for this session
+1599473333547	Marionette	INFO	Stopped listening on port 35037
+1599475698184	geckodriver	INFO	Listening on 127.0.0.1:48549
+1599475698192	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileaAq5AV"
+1599475703040	Marionette	INFO	Listening on port 32835
+1599475703107	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+1599475704487	Marionette	INFO	Stopped listening on port 32835
+1599475706222	geckodriver	INFO	Listening on 127.0.0.1:44219
+1599475706227	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile31Rkn0"
+1599475710369	Marionette	INFO	Listening on port 40965
+1599475710448	Marionette	WARN	TLS certificate errors will be ignored for this session
+1599475710522	Marionette	INFO	Stopped listening on port 40965
+console.warn: services.settings: main/whats-new-panel sync interrupted by shutdown
+1599475712209	geckodriver	INFO	Listening on 127.0.0.1:60587
+1599475712214	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile3UrV5b"
+1599475716294	Marionette	INFO	Listening on port 37765
+1599475716327	Marionette	WARN	TLS certificate errors will be ignored for this session
+1599475716373	Marionette	INFO	Stopped listening on port 37765
+1599475724713	geckodriver	INFO	Listening on 127.0.0.1:57729
+1599475724721	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekbDdD8"
+1599475728769	Marionette	INFO	Listening on port 43925
+1599475728835	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+JavaScript warning: https://duckduckgo.com/d2841.js, line 1: unreachable code after return statement
+1599475730228	Marionette	INFO	Stopped listening on port 43925
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1599475731995	geckodriver	INFO	Listening on 127.0.0.1:40111
+1599475732003	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileCiKUnK"
+1599475736103	Marionette	INFO	Listening on port 43285
+1599475736125	Marionette	WARN	TLS certificate errors will be ignored for this session
+1599475736191	Marionette	INFO	Stopped listening on port 43285

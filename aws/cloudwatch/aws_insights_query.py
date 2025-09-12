@@ -31,10 +31,34 @@ def datetime_from_utc_to_local(utc_datetime):
     offset = datetime.datetime.fromtimestamp(now_timestamp) - datetime.datetime.utcfromtimestamp(now_timestamp)
     return utc_datetime + offset
 
-APPNAMES = ['homedelivery', "lambda_api", "homedelivery_all", "spaceadapter", "baskethandler", "orderadapter"]
+APPNAMES = [
+            "homedelivery",
+            "lambda_api",
+            "homedelivery_all",
+            "spaceadapter",
+            "baskethandler",
+            "orderadapter",
+            "orderadapter_all",
+            "eventorder",
+            "eventorder_all",
+            "eventhandler",
+            "freedelivery",
+            "nhsdiscount",
+            "colleaguediscount",
+            "catchweight",
+            "loadtest",
+            "clickandcollect",
+            "realtimebigquery",
+            "salesapi",
+            "salestobq",
+           ]
 
 def get_log_groups_of_app(appname, env):
-   
+
+    common_env = env
+    if env != "dev" and env != "sit" and env != "prd":
+        common_env = "dev"
+
     if not appname in APPNAMES:
         logging.error(f"undefined appname selected: '{appname}'. Only those appnames are defined: {APPNAMES}")
         return None
@@ -86,10 +110,100 @@ def get_log_groups_of_app(appname, env):
             f"order-adapter-task-{env}",
             f"/aws/lambda/OrderAdapterLambda-{env.upper()}"
         ]
+    elif appname == "orderadapter_all":
+        return [
+            f"order-adapter-task-{env}",
+            f"sales-{env}",
+            f"/aws/lambda/OrderAdapterLambda-{env.upper()}"
+        ]
+    elif appname == "eventorder":
+        return [
+            f"osp-event-order-task-{env}",
+            #f"/aws/lambda/OspEventOrderTaskLambda-{env.upper()}",
+            f"/aws/lambda/lmb-euw1-{env}-event-order-trigger-lambda",
+        ]
+    elif appname == "freedelivery":
+        return [
+            f"/aws/lambda/lmb-euw1-{env}-strpck-bigquery_get_data-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-bigquery_update_data-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-freedelivery_generate_input-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-freedelivery_generate_output-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-freedelivery_initialize-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-osp_add_customers_to_group-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-osp_create_customer_group-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-osp_create_or_update_promotion-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-osp_filter_customers-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-event_writer-001",
+        ]
+    elif appname == "nhsdiscount":
+        return [
+            f"/aws/lambda/lmb-euw1-{common_env}-strpck-bigquery_update_data-002",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-club_leavers_joiners-001",
+            f"/aws/lambda/lmb-euw1-{common_env}-strpck-event_writer-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-nhsdiscount_generate_input-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-nhsdiscount_generate_output-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-osp_remove_customers_from_group-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-osp_add_customers_to_group_nhs-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-step_functions_trigger-001",
+        ]
+    elif appname == "colleaguediscount":
+        return [
+            f"/aws/lambda/lmb-euw1-{common_env}-strpck-bigquery_update_data-002",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-club_leavers_joiners-001",
+            f"/aws/lambda/lmb-euw1-{common_env}-strpck-event_writer-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-nhsdiscount_generate_input-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-nhsdiscount_generate_output-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-osp_remove_customers_from_group-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-osp_add_customers_to_group_nhs-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-step_functions_trigger-001",
+            f"/aws/lambda/lmb-euw1-{env}-storepick_discount_api-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-process_ocean_events-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-ocean-file-generator-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-colleague_handler-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-create-osp-shell-account-001",
+        ]
+    elif appname == "catchweight":
+        return [
+            f"stock-transfer-service-{env}",
+            f"osp-event-handler-service-{env}",
+        ]
+    elif appname == "loadtest":
+        return [
+            f"/aws/lambda/lmb-euw1-{env}-strpck-load_test_helper-001",
+        ]
+    elif appname == "eventorder_all":
+        return [
+            f"osp-event-order-task-{env}",
+            f"/aws/lambda/lmb-euw1-{env}-event-order-trigger-lambda",
+            f"osp-event-handler-service-{env}"
+        ]
+    elif appname == "eventhandler":
+        return [
+            f"osp-event-handler-service-{env}"
+        ]
     elif appname == "baskethandler":
         return [
             f"basket-handler-task-{env}"
         ]
+    elif appname == "clickandcollect":
+        return [
+            f"/aws/lambda/lmb-euw1-{env}-digital-strpck-uncollectedOrderHandler-001"
+        ]
+    elif appname == "realtimebigquery":
+        return [
+            f"clg-euw1-{env}-storepick-rt-bq-001"
+        ]
+    elif appname == "salesapi":
+        return [
+            f"sales-{env}"
+        ]
+    elif appname == "salestobq":
+        return [
+            f"/aws/lambda/lmb-euw1-{env}-storepick_monitor_mordering_rds_triggers-001",
+            f"clg-euw1-storepick-rds-trg-ecs-{env}-001",
+            f"/aws/lambda/lmb-euw1-{env}-strpck-event_writer-001",
+        ]
+
     else:
         logging.error(f"Not found log groups for {appname} in {env}")
         return None
@@ -173,8 +287,11 @@ def get_logs(env, startTime, endTime ,query, limit, appname=None, log_groups=Non
 
             recent_timestamp = log_fields.get('@timestamp')
 
-        #if len(results['results']) > 0:
-        recent_log_event = results['results'][-1]
+        if len(results['results']) > 0:
+            recent_log_event = results['results'][-1]
+        else:
+            print("   => Result: 0 records parsed")
+            break
 
     output_file.close()
 
